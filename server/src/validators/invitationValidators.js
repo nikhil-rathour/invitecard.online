@@ -1,6 +1,5 @@
 import { z } from 'zod'
-import { SUPPORTED_LANGUAGES } from '../models/Template.js'
-import { INVITATION_STATUSES } from '../models/Invitation.js'
+import { INVITATION_STATUSES, SUPPORTED_LANGUAGES } from '../models/Invitation.js'
 
 const objectId = z.string().regex(/^[a-f\d]{24}$/i, 'Invalid id')
 
@@ -21,7 +20,6 @@ export const eventInputSchema = z.object({
 })
 
 export const createInvitationSchema = z.object({
-  templateId: objectId,
   title: z.string().trim().min(2).max(120),
   language: z.enum(SUPPORTED_LANGUAGES).optional(),
   status: z.enum(['draft', 'ready']).optional(),
@@ -50,7 +48,7 @@ export const createInvitationSchema = z.object({
   events: z.array(eventInputSchema).max(12).optional(),
 })
 
-export const updateInvitationSchema = createInvitationSchema.partial().omit({ templateId: true })
+export const updateInvitationSchema = createInvitationSchema.partial()
 
 export const invitationIdParamSchema = z.object({
   id: objectId,

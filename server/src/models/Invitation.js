@@ -1,12 +1,11 @@
 import mongoose from 'mongoose'
-import { SUPPORTED_LANGUAGES } from './Template.js'
 
+export const SUPPORTED_LANGUAGES = ['English', 'Hindi', 'Gujarati']
 export const INVITATION_STATUSES = ['draft', 'ready', 'published', 'archived']
 
 const invitationSchema = new mongoose.Schema(
   {
     ownerId: { type: mongoose.Schema.Types.ObjectId, required: true, index: true },
-    templateId: { type: mongoose.Schema.Types.ObjectId, ref: 'Template', required: true },
     title: { type: String, required: true, trim: true },
     slug: { type: String, required: true, unique: true, lowercase: true, trim: true },
     status: { type: String, enum: INVITATION_STATUSES, default: 'draft', index: true },

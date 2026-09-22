@@ -5,9 +5,8 @@ import { X } from '@phosphor-icons/react'
 import Button from '../ui/Button'
 
 const navLinks = [
-  { label: 'Invitations', to: '/templates' },
-  { label: 'Categories', to: '/#categories' },
   { label: 'How It Works', to: '/#how-it-works' },
+  { label: 'Features', to: '/#features' },
   { label: 'FAQ', to: '/#faq' },
 ]
 
@@ -147,7 +146,7 @@ export default function MobileMenu({ open, onClose }) {
               <Button
                 size="lg"
                 className="w-full"
-                onClick={() => handleNavigate('/templates')}
+                onClick={() => handleNavigate('/create-invitation')}
               >
                 Create Invitation
               </Button>

@@ -1,19 +1,10 @@
 import { Link } from 'react-router-dom'
 
-const invitationLinks = [
-  { label: 'Wedding', slug: 'wedding' },
-  { label: 'Engagement', slug: 'engagement' },
-  { label: 'Birthday', slug: 'birthday' },
-  { label: 'Baby Shower', slug: 'baby-shower' },
-  { label: 'Pooja', slug: 'pooja' },
-  { label: 'Housewarming', slug: 'housewarming' },
-]
-
 const companyLinks = [
   { label: 'About', to: '/about' },
   { label: 'How It Works', to: '/#how-it-works' },
   { label: 'FAQ', to: '/#faq' },
-  { label: 'All Templates', to: '/templates' },
+  { label: 'Create Invitation', to: '/create-invitation' },
 ]
 
 const legalLinks = [
@@ -25,7 +16,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-bg-alt">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-3">
           {/* Brand */}
           <div>
             <Link to="/" className="inline-block">
@@ -37,25 +28,6 @@ export default function Footer() {
               Beautiful digital invitations for every Indian celebration.
               Personalise every detail and share instantly with your guests.
             </p>
-          </div>
-
-          {/* Invitations */}
-          <div>
-            <h4 className="mb-4 text-sm font-semibold text-text">
-              Invitations
-            </h4>
-            <ul className="space-y-2.5">
-              {invitationLinks.map(({ label, slug }) => (
-                <li key={slug}>
-                  <Link
-                    to={`/templates?category=${slug}`}
-                    className="text-sm text-muted transition-colors hover:text-primary"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Company */}

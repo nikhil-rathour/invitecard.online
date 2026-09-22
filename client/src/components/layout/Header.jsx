@@ -5,9 +5,8 @@ import Button from '../ui/Button'
 import MobileMenu from './MobileMenu'
 
 const navLinks = [
-  { label: 'Invitations', to: '/templates' },
-  { label: 'Categories', to: '/#categories' },
   { label: 'How It Works', to: '/#how-it-works' },
+  { label: 'Features', to: '/#features' },
   { label: 'FAQ', to: '/#faq' },
 ]
 
@@ -55,14 +54,14 @@ export default function Header() {
               >
                 Login
               </Button>
-              <Button size="sm" onClick={() => navigate('/templates')}>
+              <Button size="sm" onClick={() => navigate('/create-invitation')}>
                 Create Invitation
               </Button>
             </div>
 
             {/* Mobile actions */}
             <div className="flex items-center gap-2 md:hidden">
-              <Button size="sm" onClick={() => navigate('/templates')}>
+              <Button size="sm" onClick={() => navigate('/create-invitation')}>
                 Create
               </Button>
               <button

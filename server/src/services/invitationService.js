@@ -1,6 +1,5 @@
 import { Invitation } from '../models/Invitation.js'
 import { Event } from '../models/Event.js'
-import { Template } from '../models/Template.js'
 import { ApiError } from '../utils/ApiError.js'
 import { uniqueSlug } from '../utils/slugify.js'
 
@@ -11,14 +10,8 @@ function assertOwner(invitation, userId) {
 }
 
 export async function createInvitation(ownerId, payload) {
-  const template = await Template.findById(payload.templateId)
-  if (!template || template.status !== 'published') {
-    throw new ApiError(404, 'Template not found')
-  }
-
   const invitation = await Invitation.create({
     ownerId,
-    templateId: template._id,
     title: payload.title,
     slug: uniqueSlug(payload.title),
     status: payload.status || 'draft',
@@ -26,7 +19,7 @@ export async function createInvitation(ownerId, payload) {
     basicInfo: payload.basicInfo || {},
     hosts: payload.hosts || {},
     story: payload.story || {},
-    theme: payload.theme || template.themeConfig || {},
+    theme: payload.theme || {},
   })
 
   if (payload.events?.length) {
@@ -46,15 +39,12 @@ export async function listInvitations(ownerId, { status } = {}) {
   const filter = { ownerId }
   if (status) filter.status = status
   return Invitation.find(filter)
-    .populate('templateId', 'name slug category previewImages')
     .sort({ updatedAt: -1 })
     .lean()
 }
 
 export async function getInvitationById(id, ownerId) {
-  const invitation = await Invitation.findById(id)
-    .populate('templateId', 'name slug category previewImages themeConfig')
-    .lean()
+  const invitation = await Invitation.findById(id).lean()
   if (!invitation) throw new ApiError(404, 'Invitation not found')
   assertOwner(invitation, ownerId)
   const events = await Event.find({ invitationId: invitation._id }).sort({ sortOrder: 1 }).lean()

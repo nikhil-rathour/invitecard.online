@@ -26,8 +26,8 @@ const FEATURES = [
 ]
 
 const HOW_IT_WORKS = [
-  { step: '01', title: 'Choose a Template', desc: 'Browse a curated collection of premium Indian invitation designs.' },
-  { step: '02', title: 'Personalise Details', desc: 'Add names, events, venues and a personal message.' },
+  { step: '01', title: 'Enter Details', desc: 'Fill in your ceremony times, venues, and family names.' },
+  { step: '02', title: 'Personalise Style', desc: 'Customize colors, text messages, and celebration details.' },
   { step: '03', title: 'Share Instantly', desc: 'Save your draft or share with guests when ready.' },
 ]
 
@@ -76,14 +76,7 @@ export default function HomePage() {
                 and share your celebration with the people who matter.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button size="lg" onClick={() => navigate('/templates')}>
-                  Explore Invitations
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  onClick={() => navigate('/templates')}
-                >
+                <Button size="lg" onClick={() => navigate('/create-invitation')}>
                   Create Your Invitation
                   <ArrowRight size={18} weight="bold" />
                 </Button>
@@ -114,7 +107,7 @@ export default function HomePage() {
               Every celebration deserves a beautiful invitation
             </h2>
             <p className="mb-10 max-w-xl text-muted">
-              Choose a category to start browsing designs
+              Choose a category to start customizing your invitation
             </p>
           </ScrollReveal>
 
@@ -122,7 +115,7 @@ export default function HomePage() {
             {CATEGORIES.map((cat, i) => (
               <ScrollReveal key={cat.slug} delay={i * 0.05}>
                 <button
-                  onClick={() => navigate(`/templates?category=${cat.slug}`)}
+                  onClick={() => navigate('/create-invitation')}
                   className="group flex w-full items-center gap-3 rounded-xl border border-border bg-bg px-5 py-4 text-left transition-all hover:border-primary/30 hover:bg-primary/5 active:scale-[0.98]"
                 >
                   <Sparkle
@@ -141,7 +134,7 @@ export default function HomePage() {
       </section>
 
       {/* ========== FEATURES ========== */}
-      <section className="bg-bg py-16 lg:py-20">
+      <section id="features" className="bg-bg py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <h2 className="mb-3 font-display text-3xl font-bold text-text sm:text-4xl">
@@ -297,14 +290,13 @@ export default function HomePage() {
                 Your invitation can be ready in minutes
               </h2>
               <p className="mb-8 text-muted">
-                Start with a template, fill in your details, and share it with
-                your guests.
+                Fill in your details and create a beautiful digital invitation.
               </p>
               <Button
                 size="lg"
-                onClick={() => navigate('/templates')}
+                onClick={() => navigate('/create-invitation')}
               >
-                Browse Invitations
+                Create Invitation Now
               </Button>
             </div>
           </ScrollReveal>

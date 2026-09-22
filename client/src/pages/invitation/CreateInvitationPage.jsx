@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useForm, useFieldArray } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { ArrowLeft, ArrowRight, Plus, Trash, Eye, FloppyDisk, CheckCircle } from '@phosphor-icons/react'
-import { useTemplate } from '../../features/templates/useTemplates'
 import { useCreateInvitation } from '../../features/invitations/useInvitations'
 import { invitationService } from '../../services/invitationService'
 import Button from '../../components/ui/Button'
@@ -13,7 +12,6 @@ import Select from '../../components/ui/Select'
 import Textarea from '../../components/ui/Textarea'
 import InvitationRenderer from '../../components/invitation/InvitationRenderer'
 import Toast from '../../components/ui/Toast'
-import { Skeleton } from '../../components/ui/Skeleton'
 import { LANGUAGES } from '../../constants/categories'
 
 const STEPS = ['Details', 'Events', 'Hosts', 'Message', 'Preview']
@@ -72,7 +70,6 @@ const emptyEvent = {
 }
 
 export default function CreateInvitationPage() {
-  const { templateId } = useParams()
   const navigate = useNavigate()
   const [step, setStep] = useState(0)
   const [formData, setFormData] = useState({})
@@ -80,14 +77,6 @@ export default function CreateInvitationPage() {
   const [toast, setToast] = useState('')
   const [showMobilePreview, setShowMobilePreview] = useState(false)
 
-  const {
-    data: templateData,
-    isLoading: templateLoading,
-    isError,
-    error,
-    refetch,
-  } = useTemplate(templateId)
-  const template = templateData?.data
   const { mutateAsync: createInvitation, isPending: creating } =
     useCreateInvitation()
 
@@ -115,12 +104,11 @@ export default function CreateInvitationPage() {
     events: formData.events || [],
     hosts: formData.hosts || {},
     story: formData.story || {},
-    theme: template?.themeConfig || {},
+    theme: { primaryColor: '#8B1E3F', goldColor: '#C89B3C', background: '#FFF9F2' },
   }
 
   async function handleSaveDraft() {
     const payload = {
-      templateId: template?._id,
       title: formData.title,
       language: formData.language,
       basicInfo: {
@@ -157,28 +145,6 @@ export default function CreateInvitationPage() {
     setStep((s) => s + 1)
   }
 
-  if (templateLoading) {
-    return (
-      <div className="mx-auto max-w-6xl space-y-4 px-4 py-10 sm:px-6 lg:px-8">
-        <Skeleton className="h-8 w-1/3 rounded" />
-        <Skeleton className="h-64 w-full rounded-xl" />
-      </div>
-    )
-  }
-
-  if (isError) {
-    return (
-      <div className="mx-auto max-w-xl px-4 py-20 text-center">
-        <p className="mb-4 text-muted">
-          {error?.message || 'Template could not be loaded.'}
-        </p>
-        <Button variant="secondary" onClick={refetch}>
-          Try again
-        </Button>
-      </div>
-    )
-  }
-
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <Toast
@@ -187,34 +153,31 @@ export default function CreateInvitationPage() {
         onClose={() => setToast('')}
       />
 
-      {/* Template info */}
-      {template && (
-        <div className="mb-6 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => navigate('/templates')}
-              className="flex h-9 w-9 items-center justify-center rounded-lg text-muted transition-colors hover:bg-bg hover:text-text"
-              aria-label="Back to templates"
-            >
-              <ArrowLeft size={18} />
-            </button>
-            <div>
-              <p className="text-xs text-muted">Creating with</p>
-              <p className="text-sm font-semibold text-text">
-                {template.name}
-              </p>
-            </div>
-          </div>
-          {/* Mobile preview toggle */}
+      {/* Header */}
+      <div className="mb-6 flex items-center justify-between">
+        <div className="flex items-center gap-3">
           <button
-            onClick={() => setShowMobilePreview(!showMobilePreview)}
-            className="flex items-center gap-1.5 rounded-lg border border-border px-3 py-2 text-xs font-medium text-muted transition-colors hover:border-primary/30 hover:text-primary lg:hidden"
+            onClick={() => navigate('/dashboard')}
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-muted transition-colors hover:bg-bg hover:text-text"
+            aria-label="Back to dashboard"
           >
-            <Eye size={14} />
-            {showMobilePreview ? 'Show Form' : 'Preview'}
+            <ArrowLeft size={18} />
           </button>
+          <div>
+            <h1 className="font-display text-2xl font-bold text-text">
+              Create New Invitation
+            </h1>
+          </div>
         </div>
-      )}
+        {/* Mobile preview toggle */}
+        <button
+          onClick={() => setShowMobilePreview(!showMobilePreview)}
+          className="flex items-center gap-1.5 rounded-lg border border-border px-3 py-2 text-xs font-medium text-muted transition-colors hover:border-primary/30 hover:text-primary lg:hidden"
+        >
+          <Eye size={14} />
+          {showMobilePreview ? 'Show Form' : 'Preview'}
+        </button>
+      </div>
 
       {/* Step indicator */}
       <div className="mb-8 flex items-center gap-1 overflow-x-auto pb-2">
@@ -556,7 +519,7 @@ export default function CreateInvitationPage() {
           )}
         </div>
 
-        {/* Preview column (desktop always visible, mobile toggle) */}
+        {/* Preview column */}
         <div
           className={`${showMobilePreview ? 'block' : 'hidden'} lg:block`}
         >

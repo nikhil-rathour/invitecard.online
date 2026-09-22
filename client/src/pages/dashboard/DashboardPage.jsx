@@ -51,7 +51,7 @@ export default function DashboardPage() {
             Welcome back, {DEV_USER.name}
           </p>
         </div>
-        <Button onClick={() => navigate('/templates')}>
+        <Button onClick={() => navigate('/create-invitation')}>
           <Plus size={16} />
           Create Invitation
         </Button>
@@ -96,8 +96,8 @@ export default function DashboardPage() {
           title="No invitations yet"
           description="Create your first beautiful digital invitation."
           action={
-            <Button onClick={() => navigate('/templates')}>
-              Browse Templates
+            <Button onClick={() => navigate('/create-invitation')}>
+              Create Invitation
             </Button>
           }
         />
@@ -113,7 +113,6 @@ export default function DashboardPage() {
               <div className="min-w-0 flex-1">
                 <p className="truncate font-medium text-text">{inv.title}</p>
                 <p className="mt-0.5 text-xs text-muted">
-                  {inv.templateId?.name ? `${inv.templateId.name} · ` : ''}
                   {new Date(inv.updatedAt || inv.createdAt).toLocaleDateString(
                     'en-IN',
                     { dateStyle: 'medium' }
@@ -124,24 +123,14 @@ export default function DashboardPage() {
                 <Badge variant={STATUS_VARIANT[inv.status] || 'default'}>
                   {inv.status}
                 </Badge>
-                {inv.templateId && (
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={() =>
-                      navigate(
-                        `/create-invitation/${
-                          inv.templateId.slug ||
-                          inv.templateId._id ||
-                          inv.templateId
-                        }`
-                      )
-                    }
-                  >
-                    Edit
-                    <ArrowRight size={12} />
-                  </Button>
-                )}
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => navigate('/create-invitation')}
+                >
+                  Edit
+                  <ArrowRight size={12} />
+                </Button>
               </div>
             </div>
           ))}

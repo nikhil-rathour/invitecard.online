@@ -7,9 +7,7 @@ import { env } from './config/env.js'
 import { sanitizeRequest } from './utils/sanitize.js'
 import { errorHandler, notFound } from './middlewares/errorHandler.js'
 import { healthRouter } from './routes/health.routes.js'
-import { templateRouter } from './routes/template.routes.js'
 import { invitationRouter, eventRouter } from './routes/invitation.routes.js'
-import { listCategories } from './controllers/templateController.js'
 
 export function createApp() {
   const app = express()
@@ -41,8 +39,6 @@ export function createApp() {
   )
 
   app.use('/api/v1/health', healthRouter)
-  app.use('/api/v1/templates', templateRouter)
-  app.get('/api/v1/categories', listCategories)
   app.use('/api/v1/invitations', invitationRouter)
   app.use('/api/v1/events', eventRouter)
 
