@@ -40,7 +40,7 @@ export function createApp() {
     })
   )
 
-  app.use('/api/v1/health', healthRouter)
+  app.use('/', healthRouter)
   app.use('/api/v1/auth', authRouter)
   app.use('/api/v1/invitations', verifyAdminToken, invitationRouter)
   app.use('/api/v1/events', verifyAdminToken, eventRouter)
