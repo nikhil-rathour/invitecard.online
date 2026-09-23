@@ -18,7 +18,7 @@ export function createApp() {
   app.use(helmet())
   app.use(
     cors({
-      origin: env.clientUrl,
+      origin: env.clientUrl === '*' ? true : [env.clientUrl, 'http://localhost:5173'].filter(Boolean),
       credentials: true,
     })
   )
@@ -26,7 +26,7 @@ export function createApp() {
   app.use(express.urlencoded({ extended: false, limit: '100kb' }))
   app.use(sanitizeRequest)
   app.use(
-    morgan(env.isProd ? 'combined' : 'dev', {
+    morgan('dev', {
       skip: (req) => req.path === '/api/v1/health',
     })
   )

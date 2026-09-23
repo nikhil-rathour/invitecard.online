@@ -23,57 +23,66 @@ function NotFound() {
 
 export default function AppRoutes() {
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/templates" element={<TemplatePage />} />
-        <Route path="/templates/template1" element={<Template1 />} />
-        <Route path="/templates/template2" element={<Template2 />} />
-        <Route path="/templates/template3" element={<Template3 />} />
-        <Route path="/templates/template4" element={<Template4 />} />
-        <Route path="/templates/template5" element={<Template5 />} />
-        <Route path="/templates/template6" element={<Template6 />} />
+    <Routes>
+      {/* Standalone Template Demos (Zero website chrome / no Header or Footer) */}
+      <Route path="/templates/template1" element={<Template1 />} />
+      <Route path="/templates/template2" element={<Template2 />} />
+      <Route path="/templates/template3" element={<Template3 />} />
+      <Route path="/templates/template4" element={<Template4 />} />
+      <Route path="/templates/template5" element={<Template5 />} />
+      <Route path="/templates/template6" element={<Template6 />} />
 
-        <Route path="/admin" element={<AdminPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route
-          path="/login"
-          element={
-            <PlaceholderPage
-              title="Login is coming next"
-              description="JWT authentication will be added in the next development phase. You can still create and save drafts as a development user."
-            />
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <PlaceholderPage
-              title="About InviteCard"
-              description="A premium Indian digital invitation studio. Full company pages will follow with CMS content."
-            />
-          }
-        />
-        <Route
-          path="/privacy"
-          element={
-            <PlaceholderPage
-              title="Privacy Policy"
-              description="A complete privacy policy will be published before public launch."
-            />
-          }
-        />
-        <Route
-          path="/terms"
-          element={
-            <PlaceholderPage
-              title="Terms of Service"
-              description="Terms will be published before paid checkout is enabled."
-            />
-          }
-        />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Layout>
+      {/* Main Website Pages (Wrapped in Layout) */}
+      <Route
+        path="*"
+        element={
+          <Layout>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/templates" element={<TemplatePage />} />
+              <Route path="/admin" element={<AdminPage />} />
+              <Route path="/dashboard" element={<DashboardPage />} />
+              <Route
+                path="/login"
+                element={
+                  <PlaceholderPage
+                    title="Login is coming next"
+                    description="JWT authentication will be added in the next development phase."
+                  />
+                }
+              />
+              <Route
+                path="/about"
+                element={
+                  <PlaceholderPage
+                    title="About InviteCard"
+                    description="A premium Indian digital invitation studio."
+                  />
+                }
+              />
+              <Route
+                path="/privacy"
+                element={
+                  <PlaceholderPage
+                    title="Privacy Policy"
+                    description="A complete privacy policy will be published before public launch."
+                  />
+                }
+              />
+              <Route
+                path="/terms"
+                element={
+                  <PlaceholderPage
+                    title="Terms of Service"
+                    description="Terms will be published before paid checkout is enabled."
+                  />
+                }
+              />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Layout>
+        }
+      />
+    </Routes>
   )
 }

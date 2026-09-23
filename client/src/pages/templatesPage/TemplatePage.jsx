@@ -220,7 +220,7 @@ export default function TemplatePage() {
                   variant="outline"
                   size="sm"
                   className="flex-1 rounded-full text-xs"
-                  onClick={() => navigate(template.demoRoute)}
+                  onClick={() => window.open(template.demoRoute, '_blank')}
                 >
                   <Eye size={16} />
                   View Demo
@@ -228,7 +228,18 @@ export default function TemplatePage() {
                 <Button
                   size="sm"
                   className="flex-1 rounded-full text-xs"
-                  onClick={() => alert(`Selected ${template.name}. Instant ordering integration coming soon!`)}
+                  onClick={() => {
+                    const phone = '917505445202'
+                    const text = `Hello! I would like to buy this invitation template:
+
+📌 *Template Name*: ${template.name}
+🏷️ *Category*: ${template.category}
+💰 *Price*: ${template.price}
+🔗 *Demo URL*: ${window.location.origin}${template.demoRoute}
+
+Please share details to customize and finalize my order!`
+                    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank')
+                  }}
                 >
                   <ShoppingCart size={16} />
                   Buy
