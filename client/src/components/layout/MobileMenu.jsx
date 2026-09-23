@@ -141,16 +141,6 @@ export default function MobileMenu({ open, onClose }) {
               </ul>
             </nav>
 
-            {/* Bottom CTA */}
-            <div className="border-t border-border-light px-5 py-4">
-              <Button
-                size="lg"
-                className="w-full"
-                onClick={() => handleNavigate('/create-invitation')}
-              >
-                Create Invitation
-              </Button>
-            </div>
           </motion.div>
         </>
       )}

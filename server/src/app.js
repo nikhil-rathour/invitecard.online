@@ -6,7 +6,9 @@ import rateLimit from 'express-rate-limit'
 import { env } from './config/env.js'
 import { sanitizeRequest } from './utils/sanitize.js'
 import { errorHandler, notFound } from './middlewares/errorHandler.js'
+import { verifyAdminToken } from './middlewares/auth.js'
 import { healthRouter } from './routes/health.routes.js'
+import { authRouter } from './routes/auth.routes.js'
 import { invitationRouter, eventRouter } from './routes/invitation.routes.js'
 
 export function createApp() {
@@ -39,8 +41,9 @@ export function createApp() {
   )
 
   app.use('/api/v1/health', healthRouter)
-  app.use('/api/v1/invitations', invitationRouter)
-  app.use('/api/v1/events', eventRouter)
+  app.use('/api/v1/auth', authRouter)
+  app.use('/api/v1/invitations', verifyAdminToken, invitationRouter)
+  app.use('/api/v1/events', verifyAdminToken, eventRouter)
 
   app.use(notFound)
   app.use(errorHandler)
