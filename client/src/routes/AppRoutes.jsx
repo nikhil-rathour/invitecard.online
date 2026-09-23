@@ -1,9 +1,16 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from '../components/layout/Layout'
 import HomePage from '../pages/home/HomePage'
-import CreateInvitationPage from '../pages/invitation/CreateInvitationPage'
+import AdminPage from '../pages/admin/AdminPage'
 import DashboardPage from '../pages/dashboard/DashboardPage'
 import PlaceholderPage from '../pages/PlaceholderPage'
+import TemplatePage from '../pages/templatesPage/TemplatePage'
+import Template1 from '../pages/templatesPage/Template1'
+import Template2 from '../pages/templatesPage/Template2'
+import Template3 from '../pages/templatesPage/Template3'
+import Template4 from '../pages/templatesPage/Template4'
+import Template5 from '../pages/templatesPage/Template5'
+import Template6 from '../pages/templatesPage/Template6'
 
 function NotFound() {
   return (
@@ -19,7 +26,15 @@ export default function AppRoutes() {
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/create-invitation" element={<CreateInvitationPage />} />
+        <Route path="/templates" element={<TemplatePage />} />
+        <Route path="/templates/template1" element={<Template1 />} />
+        <Route path="/templates/template2" element={<Template2 />} />
+        <Route path="/templates/template3" element={<Template3 />} />
+        <Route path="/templates/template4" element={<Template4 />} />
+        <Route path="/templates/template5" element={<Template5 />} />
+        <Route path="/templates/template6" element={<Template6 />} />
+
+        <Route path="/admin" element={<AdminPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route
           path="/login"

@@ -4,7 +4,6 @@ const companyLinks = [
   { label: 'About', to: '/about' },
   { label: 'How It Works', to: '/#how-it-works' },
   { label: 'FAQ', to: '/#faq' },
-  { label: 'Create Invitation', to: '/create-invitation' },
 ]
 
 const legalLinks = [

@@ -76,8 +76,8 @@ export default function HomePage() {
                 and share your celebration with the people who matter.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button size="lg" onClick={() => navigate('/create-invitation')}>
-                  Create Your Invitation
+                <Button size="lg" onClick={() => navigate('/templates')}>
+                  Explore Templates
                   <ArrowRight size={18} weight="bold" />
                 </Button>
               </div>
@@ -115,7 +115,7 @@ export default function HomePage() {
             {CATEGORIES.map((cat, i) => (
               <ScrollReveal key={cat.slug} delay={i * 0.05}>
                 <button
-                  onClick={() => navigate('/create-invitation')}
+                  onClick={() => navigate('/templates')}
                   className="group flex w-full items-center gap-3 rounded-xl border border-border bg-bg px-5 py-4 text-left transition-all hover:border-primary/30 hover:bg-primary/5 active:scale-[0.98]"
                 >
                   <Sparkle
@@ -294,9 +294,9 @@ export default function HomePage() {
               </p>
               <Button
                 size="lg"
-                onClick={() => navigate('/create-invitation')}
+                onClick={() => navigate('/templates')}
               >
-                Create Invitation Now
+                Browse All Templates
               </Button>
             </div>
           </ScrollReveal>
