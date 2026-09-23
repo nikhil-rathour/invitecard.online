@@ -43,15 +43,6 @@ export default function AppRoutes() {
               <Route path="/admin" element={<AdminPage />} />
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route
-                path="/login"
-                element={
-                  <PlaceholderPage
-                    title="Login is coming next"
-                    description="JWT authentication will be added in the next development phase."
-                  />
-                }
-              />
-              <Route
                 path="/about"
                 element={
                   <PlaceholderPage

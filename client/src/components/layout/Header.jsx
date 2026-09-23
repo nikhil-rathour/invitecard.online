@@ -47,15 +47,7 @@ export default function Header() {
             </nav>
 
             {/* Desktop actions */}
-            <div className="hidden items-center gap-2 md:flex">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => navigate('/login')}
-              >
-                Login
-              </Button>
-            </div>
+            <div className="hidden items-center gap-2 md:flex" />
 
             {/* Mobile actions */}
             <div className="flex items-center gap-2 md:hidden">

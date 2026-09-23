@@ -130,14 +130,6 @@ export default function MobileMenu({ open, onClose }) {
                     My Invitations
                   </button>
                 </li>
-                <li>
-                  <button
-                    onClick={() => handleNavigate('/login')}
-                    className="block w-full rounded-lg px-3 py-3 text-left text-base font-medium text-muted transition-colors hover:bg-bg hover:text-primary"
-                  >
-                    Login
-                  </button>
-                </li>
               </ul>
             </nav>
 
