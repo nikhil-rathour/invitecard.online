@@ -36,11 +36,11 @@ const SAMPLE_TEMPLATES = [
   },
   {
     id: 't2',
-    name: 'Lotus Mandap Ceremony',
+    name: 'Hawa Mahal Jaipur Shahi Vivah',
     category: 'wedding',
-    price: '₹1,499',
+    price: '₹1,999',
     demoRoute: '/templates/template2',
-    description: 'Soft cream and lotus-inspired styling for serene mandap ceremonies and family functions.',
+    description: 'A luxury Jaipur-inspired digital wedding invitation featuring scroll-driven Hawa Mahal zoom, clouds, Ganesh Ji court, and royal carpet.',
     demoData: {
       names: { primary: 'Rohan & Ananya', secondary: 'Together with their families' },
       basicInfo: { title: 'Rohan & Ananya', shortMessage: 'We request the honour of your presence at our wedding.' },

@@ -5,31 +5,41 @@
   --color-primary: #8B1E3F;
   --color-primary-dark: #5E142B;
   --color-primary-light: #A8345A;
-  --color-gold: #C89B3C;
-  --color-gold-light: #E8C97A;
+
+  /* Hawa Mahal Wedding Theme Palette */
+  --color-wedding-primary-pink: #F48FB1;
+  --color-wedding-bright-pink: #FFB6C9;
+  --color-wedding-blush: #FFE4EC;
+  --color-wedding-deep-rose: #C94F7C;
+  --color-wedding-cream: #FFF8F3;
+  --color-wedding-ivory: #FFFDF9;
+  --color-wedding-gold: #D8A84E;
+  --color-wedding-gold-light: #F3E5AB;
+  --color-wedding-brown: #8B6255;
+
+  --color-gold: #D8A84E;
+  --color-gold-light: #F3E5AB;
   --color-gold-dark: #A07D2E;
 
   /* Surfaces */
-  --color-bg: #FFF9F2;
-  --color-bg-alt: #FBF4EA;
+  --color-bg: #FFFDF9;
+  --color-bg-alt: #FFE4EC;
   --color-surface: #FFFFFF;
   --color-surface-hover: #FFFBF7;
 
   /* Text */
-  --color-text: #241F20;
-  --color-text-secondary: #4A4244;
-  --color-muted: #746B6D;
+  --color-text: #3D232A;
+  --color-text-secondary: #6B434E;
+  --color-muted: #8B6255;
 
   /* Borders & Dividers */
-  --color-border: #E9DFD6;
-  --color-border-light: #F2ECE5;
-
-  /* Feedback */
-  --color-success: #2E7D32;
-  --color-error: #B3261E;
+  --color-border: #F3C6D3;
+  --color-border-light: #FDE8EF;
 
   /* Typography */
   --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-script: "Great Vibes", "Alex Brush", cursive;
+  --font-cinzel: "Cinzel", Georgia, serif;
   --font-body: "DM Sans", system-ui, sans-serif;
 
   /* Border Radius */
@@ -38,53 +48,130 @@
   --radius-md: 16px;
   --radius-lg: 24px;
   --radius-full: 9999px;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(36, 31, 32, 0.06);
-  --shadow-md: 0 4px 12px rgba(36, 31, 32, 0.08);
-  --shadow-lg: 0 8px 24px rgba(36, 31, 32, 0.10);
-  --shadow-xl: 0 16px 48px rgba(36, 31, 32, 0.12);
-
-  /* Transitions */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --duration-fast: 150ms;
-  --duration-normal: 300ms;
-  --duration-slow: 500ms;
 }
 
 @layer base {
   html {
     font-family: var(--font-body);
-    background-color: var(--color-bg);
+    background-color: var(--color-wedding-ivory);
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   h1, h2, h3 {
     font-family: var(--font-display);
   }
 
-  /* Focus visible for accessibility */
-  :focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
   }
+  ::-webkit-scrollbar-track {
+    background: #FFE4EC;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D8A84E;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C94F7C;
+  }
+}
 
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
+/* Custom Typography & Utility Classes */
+.font-script {
+  font-family: "Great Vibes", "Alex Brush", cursive;
+}
 
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-    *, *::before, *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
+.font-cinzel {
+  font-family: "Cinzel", Georgia, serif;
+}
+
+.font-display {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.font-body {
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+
+/* Gold Gradient Text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #F3E5AB 0%, #D8A84E 50%, #9E7422 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Rose Gold Gradient Text */
+.text-rose-gold {
+  background: linear-gradient(135deg, #C94F7C 0%, #D8A84E 50%, #8B6255 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Royal Gold Border Frame */
+.border-gold-royal {
+  border: 1px solid rgba(216, 168, 78, 0.4);
+  box-shadow: 0 0 15px rgba(216, 168, 78, 0.15), inset 0 0 15px rgba(216, 168, 78, 0.1);
+}
+
+/* Glassmorphism Royal Card */
+.royal-glass-card {
+  background: rgba(255, 253, 249, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(244, 143, 177, 0.3);
+  box-shadow: 0 20px 40px -15px rgba(201, 79, 124, 0.12), 0 0 20px rgba(216, 168, 78, 0.1);
+}
+
+.royal-glass-dark {
+  background: rgba(61, 35, 42, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(216, 168, 78, 0.3);
+  color: #FFFDF9;
+}
+
+/* Animations */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
   }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatGentle 6s ease-in-out infinite;
+}
+
+@keyframes pulseGold {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(216, 168, 78, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(216, 168, 78, 0.8);
+  }
+}
+
+.animate-pulse-gold {
+  animation: pulseGold 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.bg-shimmer-gold {
+  background: linear-gradient(90deg, #D8A84E 0%, #F3E5AB 50%, #D8A84E 100%);
+  background-size: 200% 100%;
+  animation: shimmer 4s infinite linear;
 }
