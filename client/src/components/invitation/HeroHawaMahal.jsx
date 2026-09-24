@@ -122,7 +122,7 @@ export default function HeroHawaMahal({ onScrollExplore }) {
           ref={mahalRef}
           src={ASSETS.hawaMahal}
           alt="Hawa Mahal Full Screen Architecture"
-          className="w-full h-full object-cover sm:object-contain drop-shadow-[0_20px_40px_rgba(201,79,124,0.3)] will-change-transform transform-gpu translate-y-4 sm:translate-y-8 scale-105"
+          className="  pt-30 w-full h-full object-cover sm:object-contain drop-shadow-[0_20px_40px_rgba(201,79,124,0.3)] will-change-transform transform-gpu translate-y-4 sm:translate-y-8 scale-105"
           loading="eager"
         />
       </div>
@@ -138,7 +138,7 @@ export default function HeroHawaMahal({ onScrollExplore }) {
         className="relative z-30 flex flex-col items-center justify-between h-full pt-10 sm:pt-14 pb-10 px-4 text-center max-w-4xl mx-auto will-change-transform"
       >
         {/* Top Sacred Shloka Tag */}
-        <div className="flex flex-col items-center space-y-2">
+        {/* <div className="flex flex-col items-center space-y-2">
           <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/85 backdrop-blur-sm border border-[#D8A84E]/40 shadow-sm">
             <Sparkles className="w-4 h-4 text-[#D8A84E]" />
             <span className="font-cinzel text-xs sm:text-sm font-bold tracking-widest text-[#8B6255] uppercase">
@@ -149,27 +149,27 @@ export default function HeroHawaMahal({ onScrollExplore }) {
           <span className="font-cinzel text-[#C94F7C] text-xs sm:text-sm font-bold tracking-[0.25em] uppercase drop-shadow-sm">
             Shahi Vivah Nimantran
           </span>
-        </div>
+        </div> */}
 
         {/* Center Couple Title */}
-        <div className="my-auto space-y-2 sm:space-y-3">
-          <p className="font-display text-lg sm:text-xl md:text-2xl italic tracking-wide text-[#6B434E] drop-shadow-sm">
+        <div className="my-auto space-y-2 sm:space-y-3 pb-120">
+          <p className="font-display text-lg sm:text-x md:text-2xl italic tracking-wide text-[#B434E] drop-shadow-sm">
             We request the pleasure of your company at the wedding of
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-4">
-            <h1 className="font-script text-5xl sm:text-7xl md:text-8xl text-[#C94F7C] drop-shadow-[0_4px_16px_rgba(255,255,255,0.95)] tracking-wide">
+            <h1 className="font-script text-5xl sm:text-7xl md:text-8xl text-[#C90F7C] drop-shadow-[0_4px_16px_rgba(255,255,255,0.95)] tracking-wide">
               {weddingData.brideName}
             </h1>
-            <span className="font-cinzel text-2xl sm:text-3xl text-[#D8A84E] font-bold">
+            <span className="font-cinzel text-2xl sm:text-3xl text-[#C90F7C] font-bold">
               &
             </span>
-            <h1 className="font-script text-5xl sm:text-7xl md:text-8xl text-[#C94F7C] drop-shadow-[0_4px_16px_rgba(255,255,255,0.95)] tracking-wide">
+            <h1 className="font-script text-5xl sm:text-7xl md:text-8xl text-[#C90F7C] drop-shadow-[0_4px_16px_rgba(255,255,255,0.95)] tracking-wide">
               {weddingData.groomName}
             </h1>
           </div>
 
-          <p className="font-cinzel text-xs sm:text-sm md:text-base font-bold text-[#8B6255] tracking-[0.25em] uppercase">
+          <p className="font-cinzel text-xs sm:text-sm md:text-base font-bold text-[#B434E] tracking-[0.25em] uppercase">
             {weddingData.formattedDate} • {weddingData.city}
           </p>
         </div>
