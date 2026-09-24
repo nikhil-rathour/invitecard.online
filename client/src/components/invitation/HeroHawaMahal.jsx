@@ -16,7 +16,6 @@ export default function HeroHawaMahal({ onScrollExplore }) {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Create lightweight, silky-smooth master timeline pinned to the hero container
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
@@ -29,12 +28,12 @@ export default function HeroHawaMahal({ onScrollExplore }) {
         },
       });
 
-      // 1. FIRST SCROLL: Text fades out fast & smooth, Clouds move up, Hawa Mahal rises
+      // 1. FIRST SCROLL: Title fades up, clouds drift, Hawa Mahal rises
       tl.to(
         textRef.current,
         {
           opacity: 0,
-          y: -60,
+          y: -50,
           ease: "power1.out",
           duration: 0.8,
           force3D: true,
@@ -63,7 +62,7 @@ export default function HeroHawaMahal({ onScrollExplore }) {
           0
         );
 
-      // 2. SECOND SCROLL: Full-screen Hawa Mahal Zooms cinematically into venue transition
+      // 2. SECOND SCROLL: Hawa Mahal zooms cinematically
       tl.to(
         mahalRef.current,
         {
@@ -92,7 +91,7 @@ export default function HeroHawaMahal({ onScrollExplore }) {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-[100dvh] overflow-hidden bg-[#FFE4EC] select-none"
+      className="relative w-full h-[100dvh] overflow-hidden bg-[#1a0a10] select-none"
     >
       {/* 1. Atmospheric Cloud Background Layer */}
       <div
@@ -103,90 +102,80 @@ export default function HeroHawaMahal({ onScrollExplore }) {
           transform: "translate3d(0,0,0)",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#FFE4EC]/70" />
+        {/* Bottom-heavy vignette so the top text pops clearly */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/20 to-[#FFE4EC]/50" />
       </div>
 
-      {/* 2. Warm Transition Overlay Layer */}
+      {/* 2. Warm Transition Overlay (activates on second scroll phase) */}
       <div
         ref={overlayRef}
-        className="absolute inset-0 w-full h-full pointer-events-none opacity-0 transition-opacity duration-300 z-10 will-change-transform"
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-0 z-10 will-change-transform"
         style={{
           background:
             "radial-gradient(circle at center, rgba(255,228,236,0.2) 0%, rgba(201,79,124,0.5) 60%, rgba(61,35,42,0.9) 100%)",
         }}
       />
 
-      {/* 3. Full-Screen Hawa Mahal PNG Foreground Layer */}
-      <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none z-10 overflow-hidden">
+      {/* 3. Full-Screen Hawa Mahal PNG — bottom-anchored so it rises upward on scroll */}
+      <div className="absolute inset-0 w-full h-full flex items-end justify-center pointer-events-none z-10 overflow-hidden">
         <img
           ref={mahalRef}
           src={ASSETS.hawaMahal}
-          alt="Hawa Mahal Full Screen Architecture"
-          className="  pt-30 w-full h-full object-cover sm:object-contain drop-shadow-[0_20px_40px_rgba(201,79,124,0.3)] will-change-transform transform-gpu translate-y-4 sm:translate-y-8 scale-105"
+          alt="Hawa Mahal Jaipur"
+          className="w-full sm:w-[90%] h-auto object-contain drop-shadow-[0_-10px_50px_rgba(201,79,124,0.25)] will-change-transform transform-gpu"
+          style={{ marginBottom: "-2%" }}
           loading="eager"
         />
       </div>
 
-      {/* 4. Ambient Sparkles Glow */}
-      <div className="absolute inset-0 pointer-events-none z-20 flex items-center justify-center">
-        <div className="w-[300px] sm:w-[480px] h-[300px] sm:h-[480px] rounded-full bg-gradient-to-r from-[#FFB6C9]/30 via-[#F3E5AB]/35 to-[#C94F7C]/20 blur-2xl" />
+      {/* 4. Ambient Golden Glow — sits between mahal and text */}
+      <div className="absolute inset-0 pointer-events-none z-20 flex items-start justify-center pt-[38vh]">
+        <div className="w-[340px] sm:w-[520px] h-[180px] sm:h-[240px] rounded-full bg-gradient-to-b from-[#FFB6C9]/20 via-[#F3E5AB]/25 to-transparent blur-3xl" />
       </div>
 
-      {/* 5. Hero Invitation Typography */}
+      {/* 5. COUPLE TITLE — Pinned to the TOP, overlaying Hawa Mahal image */}
       <div
         ref={textRef}
-        className="relative z-30 flex flex-col items-center justify-between h-full pt-10 sm:pt-14 pb-10 px-4 text-center max-w-4xl mx-auto will-change-transform"
+        className="absolute inset-x-0 top-0 z-30 flex flex-col items-center justify-start pt-8 sm:pt-10 px-4 text-center will-change-transform"
       >
-        {/* Top Sacred Shloka Tag */}
-        {/* <div className="flex flex-col items-center space-y-2">
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/85 backdrop-blur-sm border border-[#D8A84E]/40 shadow-sm">
-            <Sparkles className="w-4 h-4 text-[#D8A84E]" />
-            <span className="font-cinzel text-xs sm:text-sm font-bold tracking-widest text-[#8B6255] uppercase">
-              || श्री गणेशाय नमः ||
-            </span>
-            <Sparkles className="w-4 h-4 text-[#D8A84E]" />
-          </div>
-          <span className="font-cinzel text-[#C94F7C] text-xs sm:text-sm font-bold tracking-[0.25em] uppercase drop-shadow-sm">
-            Shahi Vivah Nimantran
+  
+
+        {/* Request line */}
+        <p className="font-display text-base sm:text-lg md:text-xl italic tracking-wide text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] mb-2">
+          We request the pleasure of your company at the wedding of
+        </p>
+
+        {/* Bride & Groom Names — large, bold, centered at top */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-5 my-1">
+          <h1 className="font-script text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-white drop-shadow-[0_4px_20px_rgba(201,79,124,0.9)] tracking-wide leading-none">
+            {weddingData.brideName}
+          </h1>
+          <span className="font-cinzel text-2xl sm:text-4xl text-[#D8A84E] font-bold drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)] px-2">
+            &
           </span>
-        </div> */}
-
-        {/* Center Couple Title */}
-        <div className="my-auto space-y-2 sm:space-y-3 pb-120">
-          <p className="font-display text-lg sm:text-x md:text-2xl italic tracking-wide text-[#B434E] drop-shadow-sm">
-            We request the pleasure of your company at the wedding of
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-4">
-            <h1 className="font-script text-5xl sm:text-7xl md:text-8xl text-[#C90F7C] drop-shadow-[0_4px_16px_rgba(255,255,255,0.95)] tracking-wide">
-              {weddingData.brideName}
-            </h1>
-            <span className="font-cinzel text-2xl sm:text-3xl text-[#C90F7C] font-bold">
-              &
-            </span>
-            <h1 className="font-script text-5xl sm:text-7xl md:text-8xl text-[#C90F7C] drop-shadow-[0_4px_16px_rgba(255,255,255,0.95)] tracking-wide">
-              {weddingData.groomName}
-            </h1>
-          </div>
-
-          <p className="font-cinzel text-xs sm:text-sm md:text-base font-bold text-[#B434E] tracking-[0.25em] uppercase">
-            {weddingData.formattedDate} • {weddingData.city}
-          </p>
+          <h1 className="font-script text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-white drop-shadow-[0_4px_20px_rgba(201,79,124,0.9)] tracking-wide leading-none">
+            {weddingData.groomName}
+          </h1>
         </div>
 
-        {/* Bottom Scroll Indicator */}
-        <div
-          className="flex flex-col items-center space-y-1.5 cursor-pointer group pointer-events-auto"
-          onClick={onScrollExplore}
-        >
-          <span className="font-cinzel text-xs font-bold tracking-widest text-[#C94F7C] group-hover:text-[#D8A84E] transition-colors uppercase">
-            Scroll To Experience
-          </span>
-          <div className="w-7 h-10 rounded-full border-2 border-[#C94F7C]/60 flex items-start justify-center p-1 shadow-sm group-hover:border-[#D8A84E] transition-colors">
-            <div className="w-1.5 h-2 rounded-full bg-[#C94F7C] group-hover:bg-[#D8A84E] animate-bounce" />
-          </div>
-          <ChevronDown className="w-4 h-4 text-[#C94F7C] animate-pulse" />
+        {/* Date & City */}
+        <p className="font-cinzel text-[11px] sm:text-xs md:text-sm font-bold text-[#F3E5AB] tracking-[0.3em] uppercase drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] mt-2">
+          {weddingData.formattedDate} &nbsp;•&nbsp; {weddingData.city}
+        </p>
+      </div>
+
+      {/* 6. Bottom Scroll Indicator — fixed at base */}
+      <div
+        className="absolute bottom-8 inset-x-0 z-30 flex flex-col items-center space-y-1.5 cursor-pointer group pointer-events-auto"
+        onClick={onScrollExplore}
+      >
+        <span className="font-cinzel text-[10px] sm:text-xs font-bold tracking-widest text-white/80 group-hover:text-[#D8A84E] transition-colors uppercase drop-shadow">
+          Scroll To Experience
+        </span>
+        <div className="w-6 h-9 rounded-full border-2 border-white/50 flex items-start justify-center p-1 group-hover:border-[#D8A84E] transition-colors">
+          <div className="w-1.5 h-2 rounded-full bg-white group-hover:bg-[#D8A84E] animate-bounce" />
         </div>
+        <ChevronDown className="w-4 h-4 text-white/60 animate-pulse" />
       </div>
     </div>
   );
