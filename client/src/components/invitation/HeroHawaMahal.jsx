@@ -129,9 +129,9 @@ export default function HeroHawaMahal({ onScrollExplore }) {
       </div>
 
       {/* 4. Ambient Golden Glow — sits between mahal and text */}
-      <div className="absolute inset-0 pointer-events-none z-20 flex items-start justify-center pt-[38vh]">
+      {/* <div className="absolute inset-0 pointer-events-none z-20 flex items-start justify-center pt-[38vh]">
         <div className="w-[340px] sm:w-[520px] h-[180px] sm:h-[240px] rounded-full bg-gradient-to-b from-[#FFB6C9]/20 via-[#F3E5AB]/25 to-transparent blur-3xl" />
-      </div>
+      </div> */}
 
       {/* 5. COUPLE TITLE — Pinned to the TOP, overlaying Hawa Mahal image */}
       <div

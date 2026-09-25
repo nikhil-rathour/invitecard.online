@@ -2,7 +2,6 @@ import React from "react";
 import HeroHawaMahal from "../../components/invitation/HeroHawaMahal";
 import WeddingIntro from "../../components/invitation/WeddingIntro";
 import CoupleSection from "../../components/invitation/CoupleSection";
-import GaneshSection from "../../components/invitation/GaneshSection";
 import ElephantDecor from "../../components/invitation/ElephantDecor";
 import WeddingDetails from "../../components/invitation/WeddingDetails";
 import GalleryInstagramSection from "../../components/invitation/GalleryInstagramSection";
@@ -33,23 +32,20 @@ export default function Template2() {
       {/* 2. ROYAL CARPET SECTION: Main Wedding Invitation & Countdown */}
       <WeddingIntro />
 
-      {/* 3. COUPLE SECTION: Decorative Bride & Groom PNG */}
+      {/* 3. INSTAGRAM HANDLES & COUPLE MOMENTS GALLERY */}
+      <GalleryInstagramSection />
+
+      {/* 4. WEDDING DETAILS SECTION: Event Itinerary */}
+      <WeddingDetails />
+
+      {/* 5. COUPLE SECTION: Decorative Bride & Groom PNG */}
       <div className="relative">
         <ElephantDecor side="left" />
         <CoupleSection />
         <ElephantDecor side="right" />
       </div>
 
-      {/* 4. GANESH JI SECTION: Devotional Shloka Court */}
-      <GaneshSection />
-
-      {/* 5. WEDDING DETAILS SECTION: Event Itinerary */}
-      <WeddingDetails />
-
-      {/* 6. INSTAGRAM HANDLES & COUPLE MOMENTS GALLERY */}
-      <GalleryInstagramSection />
-
-      {/* 7. WISHES & BLESSINGS GUESTBOOK SECTION */}
+      {/* 6. WISHES & BLESSINGS GUESTBOOK SECTION */}
       <WishesSection />
 
       {/* Footer Branding Note */}
