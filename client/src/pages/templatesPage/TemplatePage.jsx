@@ -16,26 +16,9 @@ const CATEGORIES = [
 ]
 
 const SAMPLE_TEMPLATES = [
+
   {
     id: 't1',
-    name: 'Royal Marigold Wedding',
-    category: 'wedding',
-    price: '₹1,499',
-    demoRoute: '/templates/template1',
-    description: 'A warm, festive royal wedding invitation with marigold gold and deep maroon tones.',
-    demoData: {
-      names: { primary: 'Aarav & Kavya', secondary: 'With the blessings of our families' },
-      basicInfo: { title: 'Aarav & Kavya', shortMessage: 'Together with our families, we invite you to celebrate our wedding.' },
-      events: [
-        { title: 'Wedding Ceremony', date: '2026-11-24', startTime: '10:00', venueName: 'Rambagh Palace, Jaipur' },
-        { title: 'Grand Reception', date: '2026-11-24', startTime: '19:30', venueName: 'The Heritage Lawn, Jaipur' },
-      ],
-      hosts: { brideFamily: 'Sharma Family', groomFamily: 'Mehta Family' },
-      theme: { layout: 'classic', primaryColor: '#8B1E3F', goldColor: '#C89B3C', background: '#FFF9F2' },
-    },
-  },
-  {
-    id: 't2',
     name: 'Hawa Mahal Jaipur Shahi Vivah',
     category: 'wedding',
     price: '₹999',
@@ -52,75 +35,8 @@ const SAMPLE_TEMPLATES = [
       hosts: { brideFamily: 'Kapur Family', groomFamily: 'Verma Family' },
       theme: { layout: 'floral', primaryColor: '#8B1E3F', goldColor: '#C89B3C', background: '#FFFDF9' },
     },
-  },
-  {
-    id: 't3',
-    name: 'Pastel Mehendi & Sangeet',
-    category: 'wedding',
-    price: '₹1,299',
-    demoRoute: '/templates/template3',
-    description: 'Fresh mint green and gold accents designed for joyful pre-wedding ceremonies.',
-    demoData: {
-      names: { primary: 'Dev & Priyal', secondary: 'Join us for music & dance' },
-      basicInfo: { title: 'Dev & Priyal', shortMessage: 'Put on your dancing shoes for an evening of music and mehendi.' },
-      events: [
-        { title: 'Sangeet Night', date: '2026-12-10', startTime: '18:00', venueName: 'The Fern Resort, Goa' },
-      ],
-      hosts: { brideFamily: 'Joshi Family', groomFamily: 'Patel Family' },
-      theme: { layout: 'floral', primaryColor: '#2A4365', goldColor: '#C89B3C', background: '#F7FAFC' },
-    },
-  },
-  {
-    id: 't4',
-    name: 'Golden Engagement Ceremony',
-    category: 'engagement',
-    price: '₹1,199',
-    demoRoute: '/templates/template4',
-    description: 'A sparkling gold and ivory template designed for ring ceremonies and formal announcements.',
-    demoData: {
-      names: { primary: 'Kabir & Riya', secondary: 'Engagement Celebration' },
-      basicInfo: { title: 'Kabir & Riya', shortMessage: 'We are getting engaged! Please join us in celebrating.' },
-      events: [
-        { title: 'Ring Ceremony', date: '2026-10-15', startTime: '17:00', venueName: 'Taj Lands End, Mumbai' },
-      ],
-      hosts: { brideFamily: 'Malhotra Family', groomFamily: 'Singhania Family' },
-      theme: { layout: 'classic', primaryColor: '#8B1E3F', goldColor: '#C89B3C', background: '#FFF9F2' },
-    },
-  },
-  {
-    id: 't5',
-    name: 'Classic Birthday Milestone',
-    category: 'birthday',
-    price: '₹999',
-    demoRoute: '/templates/template5',
-    description: 'Celebrate birthdays with elegance and warm gold typography for family gatherings.',
-    demoData: {
-      names: { primary: 'Ahaan Verma', secondary: 'Turning 18!' },
-      basicInfo: { title: 'Ahaan Verma Birthday', shortMessage: 'Join us for dinner, drinks, and birthday celebrations.' },
-      events: [
-        { title: 'Birthday Bash', date: '2026-09-30', startTime: '19:00', venueName: 'Grand Ballroom, Delhi' },
-      ],
-      hosts: { hostNames: 'Hosted by Verma Family' },
-      theme: { layout: 'modern', primaryColor: '#2A4365', goldColor: '#C89B3C', background: '#FFFFFF' },
-    },
-  },
-  {
-    id: 't6',
-    name: 'Sweet Baby Shower (Godh Bharai)',
-    category: 'baby-shower',
-    price: '₹999',
-    demoRoute: '/templates/template6',
-    description: 'Warm pastel tones and sweet motifs for Godh Bharai and baby shower celebrations.',
-    demoData: {
-      names: { primary: 'Pooja & Sameer', secondary: 'Baby Shower Celebration' },
-      basicInfo: { title: 'Pooja Godh Bharai', shortMessage: 'Shower blessings on the mother-to-be.' },
-      events: [
-        { title: 'Godh Bharai Pooja', date: '2026-11-05', startTime: '15:00', venueName: 'Club House, Pune' },
-      ],
-      hosts: { hostNames: 'Hosted by Kulkarni Family' },
-      theme: { layout: 'floral', primaryColor: '#8B1E3F', goldColor: '#C89B3C', background: '#FFF9F2' },
-    },
-  },
+  }
+ 
 ]
 
 export default function TemplatePage() {
