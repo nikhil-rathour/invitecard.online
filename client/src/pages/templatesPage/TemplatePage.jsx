@@ -38,9 +38,10 @@ const SAMPLE_TEMPLATES = [
     id: 't2',
     name: 'Hawa Mahal Jaipur Shahi Vivah',
     category: 'wedding',
-    price: '₹1,999',
+    price: '₹999',
+    image: 'https://res.cloudinary.com/ncywzxpz/image/upload/v1790335991/ChatGPT_Image_Sep_25_2026_05_01_42_PM.png',
     demoRoute: '/templates/template2',
-    description: 'A luxury Jaipur-inspired digital wedding invitation featuring scroll-driven Hawa Mahal zoom, clouds, Ganesh Ji court, and royal carpet.',
+    description: 'A luxury Jaipur-inspired digital wedding invitation featuring scroll-driven Hawa Mahal zoom, clouds, and royal carpet.',
     demoData: {
       names: { primary: 'Rohan & Ananya', secondary: 'Together with their families' },
       basicInfo: { title: 'Rohan & Ananya', shortMessage: 'We request the honour of your presence at our wedding.' },
@@ -190,9 +191,18 @@ export default function TemplatePage() {
             className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-all duration-300 hover:shadow-xl"
           >
             {/* Template Preview Card */}
-            <div className="relative aspect-[3/4] w-full overflow-hidden bg-bg">
-              <InvitationRenderer data={template.demoData} />
-              <div className="absolute top-3 right-3">
+            <div className="relative aspect-[4/3.5] sm:aspect-[4/3.6] w-full overflow-hidden bg-bg">
+              {template.image ? (
+                <img
+                  src={template.image}
+                  alt={template.name}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              ) : (
+                <InvitationRenderer data={template.demoData} />
+              )}
+              <div className="absolute top-3 right-3 z-10">
                 <span className="rounded-full bg-surface/90 px-3 py-1 text-xs font-bold text-primary shadow-sm backdrop-blur">
                   {template.price}
                 </span>

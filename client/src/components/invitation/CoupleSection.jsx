@@ -55,21 +55,21 @@ export default function CoupleSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto p-5 sm:p-6 md:p-7 rounded-[100px_100px_32px_32px] sm:rounded-[120px_120px_36px_36px] royal-glass-card border border-[#D8A84E]/50 shadow-2xl flex flex-col items-center"
+          className="relative w-full max-w-[270px] sm:max-w-xs md:max-w-sm mx-auto p-4 sm:p-5 md:p-6 rounded-[80px_80px_28px_28px] sm:rounded-[100px_100px_32px_32px] royal-glass-card border border-[#D8A84E]/50 shadow-2xl flex flex-col items-center"
         >
           {/* Subtle Royal Arch Header */}
-          <div className="flex items-center space-x-2 text-[#D8A84E] mb-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span className="font-cinzel text-[11px] sm:text-xs tracking-widest uppercase font-semibold text-[#8B6255]">
+          <div className="flex items-center space-x-2 text-[#D8A84E] mb-1.5">
+            <Sparkles className="w-3 h-3" />
+            <span className="font-cinzel text-[10px] sm:text-[11px] tracking-widest uppercase font-semibold text-[#8B6255]">
               {weddingData.hashtag}
             </span>
-            <Sparkles className="w-3.5 h-3.5" />
+            <Sparkles className="w-3 h-3" />
           </div>
 
           {/* Gentle Floating & Breathing Bride + Groom Transparent Image */}
           <motion.div
             animate={{
-              y: [0, -8, 0],
+              y: [0, -6, 0],
               scale: [1, 1.015, 1],
             }}
             transition={{
@@ -82,22 +82,22 @@ export default function CoupleSection() {
             <img
               src={ASSETS.couple}
               alt={`${weddingData.brideName} & ${weddingData.groomName}`}
-              className="w-48 sm:w-56 md:w-64 lg:w-72 h-auto max-h-[38vh] object-contain drop-shadow-[0_12px_24px_rgba(201,79,124,0.28)] filter contrast-[1.03]"
+              className="w-40 sm:w-48 md:w-56 h-auto max-h-[30vh] object-contain drop-shadow-[0_10px_20px_rgba(201,79,124,0.25)] filter contrast-[1.03]"
               loading="lazy"
             />
           </motion.div>
 
           {/* Names below couple */}
-          <div className="text-center pt-2">
-            <h3 className="font-script text-3xl sm:text-4xl text-[#C94F7C] leading-tight">
+          <div className="text-center pt-1.5">
+            <h3 className="font-script text-2xl sm:text-3xl text-[#C94F7C] leading-tight">
               {weddingData.brideName} & {weddingData.groomName}
             </h3>
-            <div className="flex items-center justify-center space-x-2 mt-1">
-              <span className="h-[1px] w-6 bg-[#D8A84E]/60" />
-              <p className="font-cinzel text-[10px] sm:text-xs font-semibold text-[#8B6255] uppercase tracking-widest">
+            <div className="flex items-center justify-center space-x-2 mt-0.5">
+              <span className="h-[1px] w-5 bg-[#D8A84E]/60" />
+              <p className="font-cinzel text-[9px] sm:text-[10px] font-semibold text-[#8B6255] uppercase tracking-widest">
                 Forever & Always
               </p>
-              <span className="h-[1px] w-6 bg-[#D8A84E]/60" />
+              <span className="h-[1px] w-5 bg-[#D8A84E]/60" />
             </div>
           </div>
         </motion.div>

@@ -14,7 +14,8 @@ export const ASSETS = {
 
   // Reserved placeholders for future asset URLs
   elephant: "https://res.cloudinary.com/ncywzxpz/image/upload/v1790242545/elephant_3x4_transparent.png",
-  ganeshJi: "https://res.cloudinary.com/ncywzxpz/image/upload/v1790244144/ChatGPT_Image_Sep_24_2026_03_31_59_PM.png"
+  ganeshJi: "https://res.cloudinary.com/ncywzxpz/image/upload/v1790244144/ChatGPT_Image_Sep_24_2026_03_31_59_PM.png",
+  hawaMahalCard: "https://res.cloudinary.com/ncywzxpz/image/upload/v1790335991/ChatGPT_Image_Sep_25_2026_05_01_42_PM.png"
 };
 
 export default ASSETS;
