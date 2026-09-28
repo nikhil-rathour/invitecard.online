@@ -5,7 +5,7 @@ import Button from '../ui/Button'
 import MobileMenu from './MobileMenu'
 
 const navLinks = [
-  { label: 'Templates', to: '/templates' },
+  { label: 'Invitations', to: '/invitations' },
   { label: 'How It Works', to: '/#how-it-works' },
   { label: 'Features', to: '/#features' },
   { label: 'FAQ', to: '/#faq' },
@@ -21,10 +21,12 @@ export default function Header() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Brand */}
-            <Link to="/" className="flex items-center gap-1.5">
-              <span className="font-display text-xl font-bold text-primary">
-                InviteCard
-              </span>
+            <Link to="/" className="flex items-center">
+              <img
+                src="/logo.png"
+                alt="InviteCard"
+                className="h-10 w-auto"
+              />
             </Link>
 
             {/* Desktop nav */}

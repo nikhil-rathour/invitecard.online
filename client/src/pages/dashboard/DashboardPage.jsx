@@ -51,7 +51,7 @@ export default function DashboardPage() {
             Welcome back, {DEV_USER.name}
           </p>
         </div>
-        <Button onClick={() => navigate('/templates')}>
+        <Button onClick={() => navigate('/invitations')}>
           <Plus size={16} />
           Explore Templates
         </Button>
@@ -96,7 +96,7 @@ export default function DashboardPage() {
           title="No invitations yet"
           description="Browse our curated collection of digital invitation templates."
           action={
-            <Button onClick={() => navigate('/templates')}>
+            <Button onClick={() => navigate('/invitations')}>
               Explore Templates
             </Button>
           }
@@ -126,7 +126,7 @@ export default function DashboardPage() {
                 <Button
                   size="sm"
                   variant="outline"
-                  onClick={() => navigate('/templates')}
+                  onClick={() => navigate('/invitations')}
                 >
                   View Templates
                   <ArrowRight size={12} />

@@ -19,9 +19,11 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link to="/" className="inline-block">
-              <span className="font-display text-xl font-bold text-primary">
-                InviteCard
-              </span>
+              <img
+                src="/logo.png"
+                alt="InviteCard"
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="mt-3 text-sm leading-relaxed text-muted">
               Beautiful digital invitations for every Indian celebration.

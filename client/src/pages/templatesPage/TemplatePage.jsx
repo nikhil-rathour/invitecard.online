@@ -23,7 +23,7 @@ const SAMPLE_TEMPLATES = [
     category: 'wedding',
     price: '₹999',
     image: 'https://res.cloudinary.com/ncywzxpz/image/upload/v1790335991/ChatGPT_Image_Sep_25_2026_05_01_42_PM.png',
-    demoRoute: '/templates/template2',
+    demoRoute: '/invitations/demo/jaipur-shahi-vivah',
     description: 'A luxury Jaipur-inspired digital wedding invitation featuring scroll-driven Hawa Mahal zoom, clouds, and royal carpet.',
     demoData: {
       names: { primary: 'Rohan & Ananya', secondary: 'Together with their families' },
@@ -90,7 +90,7 @@ export default function TemplatePage() {
         <div className="relative w-full sm:w-64">
           <input
             type="text"
-            placeholder="Search templates..."
+            placeholder="Search invitations..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full rounded-full border border-border bg-surface py-2 pl-9 pr-4 text-xs font-medium text-text placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"

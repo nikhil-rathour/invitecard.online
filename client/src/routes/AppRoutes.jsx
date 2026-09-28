@@ -11,6 +11,7 @@ import Template3 from '../pages/templatesPage/Template3'
 import Template4 from '../pages/templatesPage/Template4'
 import Template5 from '../pages/templatesPage/Template5'
 import Template6 from '../pages/templatesPage/Template6'
+import DemoWrapper from '../components/layout/DemoWrapper'
 
 function NotFound() {
   return (
@@ -24,13 +25,13 @@ function NotFound() {
 export default function AppRoutes() {
   return (
     <Routes>
-      {/* Standalone Template Demos (Zero website chrome / no Header or Footer) */}
-      <Route path="/templates/template1" element={<Template1 />} />
-      <Route path="/templates/template2" element={<Template2 />} />
-      <Route path="/templates/template3" element={<Template3 />} />
-      <Route path="/templates/template4" element={<Template4 />} />
-      <Route path="/templates/template5" element={<Template5 />} />
-      <Route path="/templates/template6" element={<Template6 />} />
+      {/* Standalone Invitation Demos — no Header/Footer, wrapped in DemoWrapper */}
+      <Route path="/invitations/demo/jaipur-shahi-vivah" element={<DemoWrapper><Template2 /></DemoWrapper>} />
+      <Route path="/invitations/demo/royal-garden-wedding" element={<DemoWrapper><Template1 /></DemoWrapper>} />
+      <Route path="/invitations/demo/udaipur-lake-palace" element={<DemoWrapper><Template3 /></DemoWrapper>} />
+      <Route path="/invitations/demo/mughal-opulence" element={<DemoWrapper><Template4 /></DemoWrapper>} />
+      <Route path="/invitations/demo/floral-mandap" element={<DemoWrapper><Template5 /></DemoWrapper>} />
+      <Route path="/invitations/demo/pink-city-celebration" element={<DemoWrapper><Template6 /></DemoWrapper>} />
 
       {/* Main Website Pages (Wrapped in Layout) */}
       <Route
@@ -39,7 +40,7 @@ export default function AppRoutes() {
           <Layout>
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/templates" element={<TemplatePage />} />
+              <Route path="/invitations" element={<TemplatePage />} />
               <Route path="/admin" element={<AdminPage />} />
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route

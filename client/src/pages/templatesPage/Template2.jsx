@@ -10,6 +10,28 @@ import FloatingDecorations from "../../components/invitation/FloatingDecorations
 import MusicControl from "../../components/invitation/MusicControl";
 import weddingData from "../../data/weddingData";
 
+/** Tiled logo watermark that covers the full page */
+function PageWatermark() {
+  const tiles = Array.from({ length: 24 });
+  return (
+    <div
+      className="pointer-events-none fixed inset-0 z-[100] overflow-hidden select-none grid grid-cols-4 gap-0"
+      aria-hidden="true"
+    >
+      {tiles.map((_, i) => (
+        <div key={i} className="flex items-center justify-center" style={{ minHeight: "16.66vh" }}>
+          <img
+            src="/logo.png"
+            alt=""
+            className="w-32 opacity-[0.07]"
+            style={{ transform: "rotate(-30deg)", filter: "grayscale(1)" }}
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function Template2() {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -20,6 +42,9 @@ export default function Template2() {
 
   return (
     <div className="relative w-full min-h-screen bg-[#FFFDF9] text-[#3D232A] overflow-x-hidden selection:bg-[#FFB6C9] selection:text-[#3D232A]">
+      {/* Watermark — always visible on this template */}
+      <PageWatermark />
+
       {/* Floating Ambient Rose Petals */}
       <FloatingDecorations />
 

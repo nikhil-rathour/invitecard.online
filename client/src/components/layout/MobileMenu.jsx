@@ -90,9 +90,11 @@ export default function MobileMenu({ open, onClose }) {
           >
             {/* Close button */}
             <div className="flex items-center justify-between border-b border-border-light px-5 py-4">
-              <span className="font-display text-lg font-bold text-primary">
-                InviteCard
-              </span>
+              <img
+                src="/logo.png"
+                alt="InviteCard"
+                className="h-8 w-auto"
+              />
               <button
                 ref={closeRef}
                 onClick={onClose}

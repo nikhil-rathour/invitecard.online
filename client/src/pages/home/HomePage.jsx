@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { CalendarDots, ChatCircleDots, MapPin, Images, Timer, EnvelopeSimple, ArrowRight, Sparkle } from '@phosphor-icons/react'
 import Button from '../../components/ui/Button'
 import ScrollReveal from '../../components/ui/ScrollReveal'
-import InvitationRenderer from '../../components/invitation/InvitationRenderer'
+import FlipCard from '../../components/ui/FlipCard'
 
 const CATEGORIES = [
   { label: 'Wedding', slug: 'wedding' },
@@ -11,7 +11,6 @@ const CATEGORIES = [
   { label: 'Birthday', slug: 'birthday' },
   { label: 'Baby Shower', slug: 'baby-shower' },
   { label: 'Housewarming', slug: 'housewarming' },
-  { label: 'Pooja', slug: 'pooja' },
   { label: 'Anniversary', slug: 'anniversary' },
   { label: 'Other', slug: 'other' },
 ]
@@ -38,16 +37,6 @@ const FAQS = [
   { q: 'Do I need to download an app?', a: 'No. Everything works in the browser on any device. Your guests just need a link.' },
 ]
 
-const HERO_PREVIEW = {
-  names: { primary: 'Aarav & Kavya', secondary: 'With the blessings of our families' },
-  basicInfo: { shortMessage: 'Join us as we begin this new chapter together.' },
-  events: [
-    { title: 'Wedding Ceremony', date: '2026-02-14', startTime: '10:00', venueName: 'The Marigold Courtyard' },
-    { title: 'Reception', date: '2026-02-14', startTime: '19:00', venueName: 'Sea Breeze Banquet' },
-  ],
-  hosts: { brideFamily: 'Sharma Family', groomFamily: 'Mehta Family' },
-  theme: { layout: 'classic', primaryColor: '#8B1E3F', goldColor: '#C89B3C', background: '#FFF9F2' },
-}
 
 export default function HomePage() {
   const navigate = useNavigate()
@@ -76,24 +65,118 @@ export default function HomePage() {
                 and share your celebration with the people who matter.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button size="lg" onClick={() => navigate('/templates')}>
-                  Explore Templates
+                <Button size="lg" onClick={() => navigate('/invitations')}>
+                  Explore Invitations
                   <ArrowRight size={18} weight="bold" />
                 </Button>
               </div>
             </div>
 
-            {/* Right: Invitation preview */}
+            {/* Right: Invitation preview — FlipCard */}
             <div className="flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[340px]">
-                <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-lg">
-                  <div className="max-h-[500px] overflow-hidden">
-                    <InvitationRenderer data={HERO_PREVIEW} />
+              <FlipCard
+                axis="y"
+                flipOnClick
+                draggable
+                dragDistance={0}
+                tilt
+                tiltMax={12}
+                glare
+                glareOpacity={0.18}
+                hoverScale={1.03}
+                perspective={1100}
+                stiffness={170}
+                damping={20}
+                width={300}
+                height={400}
+                radius={20}
+                background="#1a0a10"
+                color="#FFE4EC"
+                shadow
+                shadowColor="#3D232A"
+                shadowOpacity={0.55}
+                ariaLabel="Hawa Mahal Jaipur Shahi Vivah invitation — click to flip"
+                front={
+                  <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                    <img
+                      src="https://res.cloudinary.com/ncywzxpz/image/upload/v1790335991/ChatGPT_Image_Sep_25_2026_05_01_42_PM.png"
+                      alt="Hawa Mahal Jaipur Shahi Vivah"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                    {/* Bottom title strip */}
+                    <div style={{
+                      position: 'absolute', bottom: 0, left: 0, right: 0,
+                      background: 'linear-gradient(to top, rgba(26,10,16,0.97) 0%, rgba(26,10,16,0.6) 70%, transparent 100%)',
+                      padding: '20px 16px 14px',
+                      textAlign: 'center',
+                    }}>
+                      <p style={{ fontFamily: 'Cinzel, serif', fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#F3E5AB', opacity: 0.75, margin: '0 0 4px' }}>
+                        Featured Invitation
+                      </p>
+                      <p style={{ fontFamily: 'Cinzel, serif', fontSize: 13, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#D8A84E', margin: 0, lineHeight: 1.4 }}>
+                        Hawa Mahal Jaipur<br />Shahi Vivah
+                      </p>
+                    </div>
                   </div>
-                </div>
-                {/* Decorative accent */}
-                <div className="absolute -bottom-3 -left-3 -z-10 h-full w-full rounded-2xl bg-primary/5" />
-              </div>
+                }
+                back={
+                  <div
+                    className="flex h-full flex-col items-center justify-center gap-4 px-6 text-center"
+                    style={{
+                      background: 'linear-gradient(160deg, #1a0a10 0%, #3D232A 100%)',
+                      borderRadius: 20,
+                    }}
+                  >
+                    {/* Gold divider top */}
+                    <div className="flex items-center gap-2 w-full justify-center">
+                      <span className="h-px flex-1 bg-gradient-to-r from-transparent to-[#D8A84E]" />
+                      <span className="text-[#D8A84E] text-sm">✦</span>
+                      <span className="h-px flex-1 bg-gradient-to-l from-transparent to-[#D8A84E]" />
+                    </div>
+
+                    <div>
+                      <p className="font-cinzel text-[10px] tracking-[0.3em] uppercase text-[#F3E5AB]/70 mb-1">
+                        Featured Invitation
+                      </p>
+                      <h3 className="font-cinzel text-lg font-bold leading-snug text-[#D8A84E]">
+                        Hawa Mahal<br />Jaipur Shahi Vivah
+                      </h3>
+                    </div>
+
+                    <p className="text-xs leading-relaxed text-[#FFE4EC]/75 max-w-[220px]">
+                      A luxury Jaipur-inspired digital wedding invitation featuring scroll-driven Hawa Mahal zoom, royal carpet, and cinematic animations.
+                    </p>
+
+                    {/* Gold divider */}
+                    <div className="flex items-center gap-2 w-full justify-center">
+                      <span className="h-px flex-1 bg-[#D8A84E]/30" />
+                      <span className="text-[#D8A84E]/50 text-xs">✦</span>
+                      <span className="h-px flex-1 bg-[#D8A84E]/30" />
+                    </div>
+
+                    <div className="flex flex-col gap-2 w-full">
+                      <button
+                        onPointerDown={(e) => e.stopPropagation()}
+                        onClick={(e) => { e.stopPropagation(); navigate('/invitations/demo/jaipur-shahi-vivah'); }}
+                        className="w-full rounded-full bg-[#D8A84E] py-2 text-[11px] font-bold uppercase tracking-widest text-[#3D232A] transition-opacity hover:opacity-90"
+                      >
+                        View Demo
+                      </button>
+                      <button
+                        onPointerDown={(e) => e.stopPropagation()}
+                        onClick={(e) => { e.stopPropagation(); navigate('/invitations'); }}
+                        className="w-full rounded-full border border-[#D8A84E]/40 py-2 text-[11px] font-semibold uppercase tracking-widest text-[#D8A84E] transition-colors hover:border-[#D8A84E]/80"
+                      >
+                        Browse All
+                      </button>
+                    </div>
+
+                    <p className="font-cinzel text-[9px] tracking-[0.2em] text-[#D8A84E]/50 uppercase">
+                      #RohanWedsAnanya
+                    </p>
+                  </div>
+                }
+              />
             </div>
           </div>
         </div>
@@ -115,7 +198,7 @@ export default function HomePage() {
             {CATEGORIES.map((cat, i) => (
               <ScrollReveal key={cat.slug} delay={i * 0.05}>
                 <button
-                  onClick={() => navigate('/templates')}
+                  onClick={() => navigate('/invitations')}
                   className="group flex w-full items-center gap-3 rounded-xl border border-border bg-bg px-5 py-4 text-left transition-all hover:border-primary/30 hover:bg-primary/5 active:scale-[0.98]"
                 >
                   <Sparkle
@@ -294,7 +377,7 @@ export default function HomePage() {
               </p>
               <Button
                 size="lg"
-                onClick={() => navigate('/templates')}
+                onClick={() => navigate('/invitations')}
               >
                 Browse All Templates
               </Button>
