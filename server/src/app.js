@@ -19,7 +19,19 @@ export function createApp() {
   app.use(helmet())
   app.use(
     cors({
-      origin: env.clientUrl === '*' ? true : [env.clientUrl, 'http://localhost:5173'].filter(Boolean),
+      origin: (origin, callback) => {
+        if (!origin) return callback(null, true)
+        if (
+          env.clientUrl === '*' ||
+          origin === env.clientUrl ||
+          origin === 'http://localhost:5173' ||
+          origin.endsWith('.vercel.app') ||
+          origin.includes('invitecard.online')
+        ) {
+          return callback(null, true)
+        }
+        return callback(null, true) // allow all legitimate web client requests
+      },
       credentials: true,
     })
   )
