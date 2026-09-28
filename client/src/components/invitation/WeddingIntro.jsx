@@ -201,50 +201,50 @@ export default function WeddingIntro() {
           </div>
 
           {timeLeft.isLive ? (
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#D8A84E]/50 bg-[#D8A84E]/20 px-5 py-2 text-center shadow-lg">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#D8A84E]/50 bg-[#D8A84E]/20 px-4 sm:px-5 py-2 text-center shadow-lg">
               <PartyPopper className="h-4 w-4 text-[#D8A84E]" />
-              <span className="font-cinzel text-xs font-bold uppercase tracking-widest text-[#F3E5AB]">
+              <span className="font-cinzel text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#F3E5AB]">
                 The Shahi Vivah Celebrations Are Live! ✨
               </span>
             </div>
           ) : (
-            <div className="grid grid-cols-4 gap-2 sm:gap-3 max-w-sm sm:max-w-md mx-auto text-center">
+            <div className="grid grid-cols-4 gap-1.5 sm:gap-3 max-w-xs sm:max-w-md mx-auto text-center">
               {/* Days */}
-              <div className="py-2 px-1 rounded-xl bg-black/40 border border-[#D8A84E]/40 shadow-inner backdrop-blur-sm transition-transform hover:scale-105">
-                <span className="block font-display text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-none">
+              <div className="py-1.5 sm:py-2 px-0.5 sm:px-1 rounded-xl bg-black/40 border border-[#D8A84E]/40 shadow-inner backdrop-blur-sm transition-transform hover:scale-105">
+                <span className="block font-display text-lg sm:text-2xl lg:text-3xl font-bold text-white leading-none">
                   {padZero(timeLeft.days)}
                 </span>
-                <span className="font-cinzel text-[9px] sm:text-[10px] font-semibold text-[#F3E5AB] uppercase tracking-wider mt-1 block">
+                <span className="font-cinzel text-[8px] sm:text-[10px] font-semibold text-[#F3E5AB] uppercase tracking-wider mt-1 block">
                   Days
                 </span>
               </div>
 
               {/* Hours */}
-              <div className="py-2 px-1 rounded-xl bg-black/40 border border-[#D8A84E]/40 shadow-inner backdrop-blur-sm transition-transform hover:scale-105">
-                <span className="block font-display text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-none">
+              <div className="py-1.5 sm:py-2 px-0.5 sm:px-1 rounded-xl bg-black/40 border border-[#D8A84E]/40 shadow-inner backdrop-blur-sm transition-transform hover:scale-105">
+                <span className="block font-display text-lg sm:text-2xl lg:text-3xl font-bold text-white leading-none">
                   {padZero(timeLeft.hours)}
                 </span>
-                <span className="font-cinzel text-[9px] sm:text-[10px] font-semibold text-[#F3E5AB] uppercase tracking-wider mt-1 block">
+                <span className="font-cinzel text-[8px] sm:text-[10px] font-semibold text-[#F3E5AB] uppercase tracking-wider mt-1 block">
                   Hours
                 </span>
               </div>
 
               {/* Minutes */}
-              <div className="py-2 px-1 rounded-xl bg-black/40 border border-[#D8A84E]/40 shadow-inner backdrop-blur-sm transition-transform hover:scale-105">
-                <span className="block font-display text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-none">
+              <div className="py-1.5 sm:py-2 px-0.5 sm:px-1 rounded-xl bg-black/40 border border-[#D8A84E]/40 shadow-inner backdrop-blur-sm transition-transform hover:scale-105">
+                <span className="block font-display text-lg sm:text-2xl lg:text-3xl font-bold text-white leading-none">
                   {padZero(timeLeft.minutes)}
                 </span>
-                <span className="font-cinzel text-[9px] sm:text-[10px] font-semibold text-[#F3E5AB] uppercase tracking-wider mt-1 block">
+                <span className="font-cinzel text-[8px] sm:text-[10px] font-semibold text-[#F3E5AB] uppercase tracking-wider mt-1 block">
                   Mins
                 </span>
               </div>
 
               {/* Seconds (Pulsing Pink Highlight) */}
-              <div className="py-2 px-1 rounded-xl bg-black/50 border border-[#FFB6C9]/50 shadow-[0_0_12px_rgba(255,182,201,0.2)] backdrop-blur-sm transition-transform hover:scale-105">
-                <span className="block font-display text-xl sm:text-2xl lg:text-3xl font-bold text-[#FFB6C9] leading-none animate-pulse">
+              <div className="py-1.5 sm:py-2 px-0.5 sm:px-1 rounded-xl bg-black/50 border border-[#FFB6C9]/50 shadow-[0_0_12px_rgba(255,182,201,0.2)] backdrop-blur-sm transition-transform hover:scale-105">
+                <span className="block font-display text-lg sm:text-2xl lg:text-3xl font-bold text-[#FFB6C9] leading-none animate-pulse">
                   {padZero(timeLeft.seconds)}
                 </span>
-                <span className="font-cinzel text-[9px] sm:text-[10px] font-semibold text-[#F3E5AB] uppercase tracking-wider mt-1 block">
+                <span className="font-cinzel text-[8px] sm:text-[10px] font-semibold text-[#F3E5AB] uppercase tracking-wider mt-1 block">
                   Secs
                 </span>
               </div>

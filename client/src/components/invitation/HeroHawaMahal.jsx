@@ -137,46 +137,44 @@ export default function HeroHawaMahal({ onScrollExplore }) {
       {/* 5. COUPLE TITLE — Pinned to the TOP, overlaying Hawa Mahal image */}
       <div
         ref={textRef}
-        className="absolute inset-x-0 top-0 z-30 flex flex-col items-center justify-start pt-8 sm:pt-10 px-4 text-center will-change-transform"
+        className="absolute inset-x-0 top-0 z-30 flex flex-col items-center justify-start pt-6 sm:pt-10 px-4 text-center will-change-transform"
       >
-  
-
         {/* Request line */}
-        <p className="font-display text-base sm:text-lg md:text-xl italic tracking-wide text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] mb-2">
+        <p className="font-display text-xs sm:text-base md:text-lg italic tracking-wide text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] mb-1 sm:mb-2">
           We request the pleasure of your company at the wedding of
         </p>
 
-        {/* Bride & Groom Names — large, bold, centered at top */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-5 my-1">
-          <h1 className="font-script text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-white drop-shadow-[0_4px_20px_rgba(201,79,124,0.9)] tracking-wide leading-none">
+        {/* Bride & Groom Names — fluid responsive font size */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-0 sm:gap-4 my-0.5 sm:my-1">
+          <h1 className="font-script text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-white drop-shadow-[0_4px_20px_rgba(201,79,124,0.9)] tracking-wide leading-none">
             {weddingData.brideName}
           </h1>
-          <span className="font-cinzel text-2xl sm:text-4xl text-[#D8A84E] font-bold drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)] px-2">
+          <span className="font-cinzel text-xl sm:text-3xl md:text-4xl text-[#D8A84E] font-bold drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)] px-1 sm:px-2 my-[-4px] sm:my-0">
             &
           </span>
-          <h1 className="font-script text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-white drop-shadow-[0_4px_20px_rgba(201,79,124,0.9)] tracking-wide leading-none">
+          <h1 className="font-script text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-white drop-shadow-[0_4px_20px_rgba(201,79,124,0.9)] tracking-wide leading-none">
             {weddingData.groomName}
           </h1>
         </div>
 
         {/* Date & City */}
-        <p className="font-cinzel text-[11px] sm:text-xs md:text-sm font-bold text-[#F3E5AB] tracking-[0.3em] uppercase drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] mt-2">
-          {weddingData.formattedDate} &nbsp;•&nbsp; {weddingData.city}
+        <p className="font-cinzel text-[10px] sm:text-xs md:text-sm font-bold text-[#F3E5AB] tracking-[0.2em] sm:tracking-[0.3em] uppercase drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] mt-1.5 sm:mt-2">
+          {weddingData.formattedDate || weddingData.date} &nbsp;•&nbsp; {weddingData.city}
         </p>
       </div>
 
       {/* 6. Bottom Scroll Indicator — fixed at base */}
       <div
-        className="absolute bottom-8 inset-x-0 z-30 flex flex-col items-center space-y-1.5 cursor-pointer group pointer-events-auto"
+        className="absolute bottom-4 sm:bottom-8 inset-x-0 z-30 flex flex-col items-center space-y-1 sm:space-y-1.5 cursor-pointer group pointer-events-auto"
         onClick={onScrollExplore}
       >
-        <span className="font-cinzel text-[10px] sm:text-xs font-bold tracking-widest text-white/80 group-hover:text-[#D8A84E] transition-colors uppercase drop-shadow">
+        <span className="font-cinzel text-[9px] sm:text-xs font-bold tracking-widest text-white/80 group-hover:text-[#D8A84E] transition-colors uppercase drop-shadow">
           Scroll To Experience
         </span>
-        <div className="w-6 h-9 rounded-full border-2 border-white/50 flex items-start justify-center p-1 group-hover:border-[#D8A84E] transition-colors">
-          <div className="w-1.5 h-2 rounded-full bg-white group-hover:bg-[#D8A84E] animate-bounce" />
+        <div className="w-5 h-8 sm:w-6 sm:h-9 rounded-full border-2 border-white/50 flex items-start justify-center p-1 group-hover:border-[#D8A84E] transition-colors">
+          <div className="w-1 h-1.5 sm:w-1.5 sm:h-2 rounded-full bg-white group-hover:bg-[#D8A84E] animate-bounce" />
         </div>
-        <ChevronDown className="w-4 h-4 text-white/60 animate-pulse" />
+        <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white/60 animate-pulse" />
       </div>
     </div>
   );

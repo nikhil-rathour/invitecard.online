@@ -18,7 +18,7 @@ function PageWatermark() {
   const tiles = Array.from({ length: 24 });
   return (
     <div
-      className="pointer-events-none fixed inset-0 z-[100] overflow-hidden select-none grid grid-cols-4 gap-0"
+      className="pointer-events-none fixed inset-0 z-[100] overflow-hidden select-none grid grid-cols-2 sm:grid-cols-4 gap-0"
       aria-hidden="true"
     >
       {tiles.map((_, i) => (
@@ -26,7 +26,7 @@ function PageWatermark() {
           <img
             src="/logo.png"
             alt=""
-            className="w-32 opacity-[0.07]"
+            className="w-24 sm:w-32 opacity-[0.06] select-none"
             style={{ transform: "rotate(-30deg)", filter: "grayscale(1)" }}
           />
         </div>

@@ -26,30 +26,30 @@ export default function MusicControl() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-40">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40">
       <audio ref={audioRef} src={audioUrl} loop preload="auto" />
 
       <button
         onClick={toggleMusic}
-        className={`relative flex items-center space-x-2 px-4 py-3 rounded-full font-cinzel text-xs font-bold tracking-widest uppercase transition-all duration-300 shadow-xl cursor-pointer ${
+        className={`relative flex items-center space-x-1.5 sm:space-x-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-full font-cinzel text-[11px] sm:text-xs font-bold tracking-wider sm:tracking-widest uppercase transition-all duration-300 shadow-xl cursor-pointer ${
           isPlaying
             ? "bg-[#C94F7C] text-white border border-[#D8A84E] shadow-[0_0_20px_rgba(201,79,124,0.6)]"
             : "bg-[#FFFDF9]/90 text-[#3D232A] border border-[#F3C6D3] hover:bg-[#FFE4EC]"
         }`}
         title={isPlaying ? "Pause Wedding Music" : "Play Wedding Music"}
       >
-        <span className="text-base leading-none animate-pulse">
+        <span className="text-sm sm:text-base leading-none animate-pulse">
           {isPlaying ? "♪" : "♫"}
         </span>
 
-        <span className="hidden sm:inline">
+        <span className="hidden xs:inline">
           {isPlaying ? "Music Playing" : "Play Music"}
         </span>
 
         {isPlaying ? (
-          <Volume2 className="w-4 h-4 text-[#F3E5AB] animate-bounce" />
+          <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F3E5AB] animate-bounce" />
         ) : (
-          <VolumeX className="w-4 h-4 text-[#8B6255]" />
+          <VolumeX className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8B6255]" />
         )}
 
         {/* Pulsing ring indicator when playing */}

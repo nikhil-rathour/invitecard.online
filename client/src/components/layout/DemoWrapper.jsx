@@ -40,17 +40,17 @@ export default function DemoWrapper({ children }) {
   return (
     <div className="relative">
       {/* ── STICKY DEMO BANNER ── */}
-      <div className="sticky top-0 z-[200] flex items-center justify-between gap-3 bg-[#3D232A] px-4 py-2.5 shadow-lg">
-        <div className="flex items-center gap-2.5 min-w-0">
-          <img src="/logo.png" alt="InviteCard" className="h-7 w-auto shrink-0" />
-          <p className="text-xs text-[#FFE4EC]/80 truncate">
+      <div className="sticky top-0 z-[200] flex items-center justify-between gap-2 bg-[#3D232A] px-3 sm:px-4 py-2 sm:py-2.5 shadow-lg">
+        <div className="flex items-center gap-2 min-w-0">
+          <img src="/logo.png" alt="InviteCard" className="h-6 sm:h-7 w-auto shrink-0" />
+          <p className="text-[11px] sm:text-xs text-[#FFE4EC]/80 truncate">
             <span className="font-semibold text-[#D8A84E]">Demo Preview</span>
-            {' '}— This is a sample invitation. Watermarks will be removed after purchase.
+            <span className="hidden sm:inline"> — Watermarks removed after purchase.</span>
           </p>
         </div>
         <button
           onClick={handleBuy}
-          className="shrink-0 rounded-full bg-[#D8A84E] px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[#3D232A] transition-opacity hover:opacity-90"
+          className="shrink-0 rounded-full bg-[#D8A84E] px-3 sm:px-4 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#3D232A] transition-opacity hover:opacity-90 shadow-sm"
         >
           Buy Now
         </button>
@@ -75,11 +75,10 @@ export default function DemoWrapper({ children }) {
 
 /** Renders a grid of rotated logo watermarks that covers the entire viewport */
 function WatermarkGrid() {
-  // 4 columns × 6 rows = 24 tiles, enough to fill any screen
   const tiles = Array.from({ length: 24 })
 
   return (
-    <div className="absolute inset-0 grid grid-cols-4 gap-0">
+    <div className="absolute inset-0 grid grid-cols-2 sm:grid-cols-4 gap-0">
       {tiles.map((_, i) => (
         <div
           key={i}
@@ -89,7 +88,7 @@ function WatermarkGrid() {
           <img
             src="/logo.png"
             alt=""
-            className="w-32 opacity-[0.07]"
+            className="w-24 sm:w-32 opacity-[0.06] select-none"
             style={{ transform: 'rotate(-30deg)', filter: 'grayscale(1)' }}
           />
         </div>

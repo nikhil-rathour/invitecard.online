@@ -160,7 +160,7 @@ export default function WishesSection() {
                     placeholder="e.g. Rahul & Priya"
                     value={guestName}
                     onChange={(e) => setGuestName(e.target.value)}
-                    className="w-full px-3 py-1.5 rounded-xl bg-white/10 border border-[#D8A84E]/40 text-white placeholder-white/40 focus:outline-none focus:border-[#D8A84E] transition-colors font-body text-xs"
+                    className="w-full px-3 py-2 sm:py-1.5 rounded-xl bg-white/10 border border-[#D8A84E]/40 text-white placeholder-white/40 focus:outline-none focus:border-[#D8A84E] transition-colors font-body text-sm sm:text-xs"
                   />
                 </div>
 
@@ -173,7 +173,7 @@ export default function WishesSection() {
                     placeholder="e.g. Friend / Family"
                     value={relation}
                     onChange={(e) => setRelation(e.target.value)}
-                    className="w-full px-3 py-1.5 rounded-xl bg-white/10 border border-[#D8A84E]/40 text-white placeholder-white/40 focus:outline-none focus:border-[#D8A84E] transition-colors font-body text-xs"
+                    className="w-full px-3 py-2 sm:py-1.5 rounded-xl bg-white/10 border border-[#D8A84E]/40 text-white placeholder-white/40 focus:outline-none focus:border-[#D8A84E] transition-colors font-body text-sm sm:text-xs"
                   />
                 </div>
               </div>
@@ -188,14 +188,14 @@ export default function WishesSection() {
                   placeholder="Write your heartfelt wishes for the couple..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full px-3 py-1.5 rounded-xl bg-white/10 border border-[#D8A84E]/40 text-white placeholder-white/40 focus:outline-none focus:border-[#D8A84E] transition-colors font-body text-xs resize-none"
+                  className="w-full px-3 py-2 sm:py-1.5 rounded-xl bg-white/10 border border-[#D8A84E]/40 text-white placeholder-white/40 focus:outline-none focus:border-[#D8A84E] transition-colors font-body text-sm sm:text-xs resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#D8A84E] via-[#F3E5AB] to-[#D8A84E] text-[#3D232A] font-cinzel font-bold text-[11px] tracking-widest uppercase shadow-md hover:brightness-110 active:scale-98 transition-all cursor-pointer flex items-center justify-center space-x-1.5 disabled:opacity-60"
+                className="w-full py-2.5 sm:py-2.5 rounded-xl bg-gradient-to-r from-[#D8A84E] via-[#F3E5AB] to-[#D8A84E] text-[#3D232A] font-cinzel font-bold text-xs tracking-widest uppercase shadow-md hover:brightness-110 active:scale-98 transition-all cursor-pointer flex items-center justify-center space-x-1.5 disabled:opacity-60 min-h-[42px]"
               >
                 {isSubmitting ? (
                   <Loader2 className="w-3.5 h-3.5 animate-spin" />
