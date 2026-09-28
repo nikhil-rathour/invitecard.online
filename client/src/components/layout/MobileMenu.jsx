@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
-import { X } from '@phosphor-icons/react'
+import { X, WhatsappLogo, InstagramLogo } from '@phosphor-icons/react'
 import Button from '../ui/Button'
 
 const navLinks = [
@@ -123,16 +123,31 @@ export default function MobileMenu({ open, onClose }) {
 
               <div className="my-6 h-px bg-border-light" />
 
-              <ul className="space-y-1">
-                <li>
-                  <button
-                    onClick={() => handleNavigate('/dashboard')}
-                    className="block w-full rounded-lg px-3 py-3 text-left text-base font-medium text-text transition-colors hover:bg-bg hover:text-primary"
-                  >
-                    My Invitations
-                  </button>
-                </li>
-              </ul>
+              <div className="space-y-2 pt-2">
+                <p className="px-3 text-xs font-semibold uppercase tracking-wider text-muted">
+                  Connect With Us
+                </p>
+                <a
+                  href="https://wa.me/917505445202?text=Hello%20InviteCard%20Team!%20%F0%9F%91%8B%20I%20would%20like%20to%20create%20a%20luxury%20digital%20invitation%20for%20my%20upcoming%20celebration.%20Please%20share%20details%20and%20pricing."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={onClose}
+                  className="flex items-center gap-2.5 rounded-xl bg-[#25D366]/10 px-3.5 py-2.5 text-sm font-semibold text-[#25D366] ring-1 ring-[#25D366]/30 hover:bg-[#25D366] hover:text-white transition-all"
+                >
+                  <WhatsappLogo size={20} weight="fill" />
+                  <span>WhatsApp (+91 7505445202)</span>
+                </a>
+                <a
+                  href="https://instagram.com/invitecard.online_"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={onClose}
+                  className="flex items-center gap-2.5 rounded-xl border border-border bg-bg px-3.5 py-2.5 text-sm font-semibold text-text hover:border-[#E1306C]/50 hover:bg-[#E1306C]/10 hover:text-[#E1306C] transition-all"
+                >
+                  <InstagramLogo size={20} weight="bold" />
+                  <span>@invitecard.online_</span>
+                </a>
+              </div>
             </nav>
 
           </motion.div>
