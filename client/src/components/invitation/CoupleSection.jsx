@@ -2,9 +2,10 @@ import React from "react";
 import { motion } from "motion/react";
 import { Heart, Sparkles, Feather } from "lucide-react";
 import ASSETS from "../../assets/assetUrls";
-import weddingData from "../../data/weddingData";
+import { useWeddingData } from "../../context/WeddingDataContext";
 
 export default function CoupleSection() {
+  const weddingData = useWeddingData();
   return (
     <section className="relative w-full min-h-[100dvh] lg:h-[100dvh] py-6 sm:py-8 px-4 bg-gradient-to-b from-[#FFFDF9] via-[#FFE4EC]/40 to-[#FFFDF9] overflow-hidden flex flex-col items-center justify-center">
       {/* Decorative Background Glow */}

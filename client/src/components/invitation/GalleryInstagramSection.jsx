@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { Heart, Sparkles, Camera, ExternalLink } from "lucide-react";
-import weddingData from "../../data/weddingData";
+import { useWeddingData } from "../../context/WeddingDataContext";
 
 // Custom SVG Instagram Icon
 const InstagramIcon = ({ className = "w-4 h-4" }) => (
@@ -21,7 +21,8 @@ const InstagramIcon = ({ className = "w-4 h-4" }) => (
 );
 
 export default function GalleryInstagramSection() {
-  const { instagramSection } = weddingData;
+  const weddingData = useWeddingData();
+  const instagramSection = weddingData.instagramSection || { gallery: [] };
 
   return (
     <section className="relative w-full min-h-[100dvh] lg:h-[100dvh] py-6 sm:py-8 px-4 bg-gradient-to-b from-[#FFFDF9] via-[#FFE4EC]/30 to-[#FFFDF9] overflow-hidden flex flex-col items-center justify-center">

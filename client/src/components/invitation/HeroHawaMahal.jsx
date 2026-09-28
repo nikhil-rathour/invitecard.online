@@ -3,11 +3,12 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronDown, Sparkles } from "lucide-react";
 import ASSETS from "../../assets/assetUrls";
-import weddingData from "../../data/weddingData";
+import { useWeddingData } from "../../context/WeddingDataContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroHawaMahal({ onScrollExplore }) {
+  const weddingData = useWeddingData();
   const containerRef = useRef(null);
   const cloudsRef = useRef(null);
   const mahalRef = useRef(null);

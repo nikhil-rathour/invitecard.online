@@ -25,56 +25,63 @@ function NotFound() {
 export default function AppRoutes() {
   return (
     <Routes>
+      {/* Live Customized Personalized Invitations (Both short URL and full path) */}
+      <Route path="/invitations/jaipur-shahi-vivah/:slug" element={<Template2 />} />
+      <Route path="/invitations/live/jaipur-shahi-vivah/:id" element={<Template2 />} />
+
       {/* Standalone Invitation Demos — no Header/Footer, wrapped in DemoWrapper */}
       <Route path="/invitations/demo/jaipur-shahi-vivah" element={<DemoWrapper><Template2 /></DemoWrapper>} />
+      <Route path="/invitations/demo/jaipur-shahi-vivah/:id" element={<DemoWrapper><Template2 /></DemoWrapper>} />
       <Route path="/invitations/demo/royal-garden-wedding" element={<DemoWrapper><Template1 /></DemoWrapper>} />
       <Route path="/invitations/demo/udaipur-lake-palace" element={<DemoWrapper><Template3 /></DemoWrapper>} />
       <Route path="/invitations/demo/mughal-opulence" element={<DemoWrapper><Template4 /></DemoWrapper>} />
       <Route path="/invitations/demo/floral-mandap" element={<DemoWrapper><Template5 /></DemoWrapper>} />
       <Route path="/invitations/demo/pink-city-celebration" element={<DemoWrapper><Template6 /></DemoWrapper>} />
 
-      {/* Main Website Pages (Wrapped in Layout) */}
+      {/* Main Website Fixed Pages (Wrapped in Layout) */}
+      <Route path="/" element={<Layout><HomePage /></Layout>} />
+      <Route path="/invitations" element={<Layout><TemplatePage /></Layout>} />
+      <Route path="/admin" element={<Layout><AdminPage /></Layout>} />
+      <Route path="/dashboard" element={<Layout><DashboardPage /></Layout>} />
       <Route
-        path="*"
+        path="/about"
         element={
           <Layout>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/invitations" element={<TemplatePage />} />
-              <Route path="/admin" element={<AdminPage />} />
-              <Route path="/dashboard" element={<DashboardPage />} />
-              <Route
-                path="/about"
-                element={
-                  <PlaceholderPage
-                    title="About InviteCard"
-                    description="A premium Indian digital invitation studio."
-                  />
-                }
-              />
-              <Route
-                path="/privacy"
-                element={
-                  <PlaceholderPage
-                    title="Privacy Policy"
-                    description="A complete privacy policy will be published before public launch."
-                  />
-                }
-              />
-              <Route
-                path="/terms"
-                element={
-                  <PlaceholderPage
-                    title="Terms of Service"
-                    description="Terms will be published before paid checkout is enabled."
-                  />
-                }
-              />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <PlaceholderPage
+              title="About InviteCard"
+              description="A premium Indian digital invitation studio."
+            />
           </Layout>
         }
       />
+      <Route
+        path="/privacy"
+        element={
+          <Layout>
+            <PlaceholderPage
+              title="Privacy Policy"
+              description="A complete privacy policy will be published before public launch."
+            />
+          </Layout>
+        }
+      />
+      <Route
+        path="/terms"
+        element={
+          <Layout>
+            <PlaceholderPage
+              title="Terms of Service"
+              description="Terms will be published before paid checkout is enabled."
+            />
+          </Layout>
+        }
+      />
+
+      {/* Short URL Route for personalized invitations: e.g. /ananya-weds-rohan-mliifx */}
+      <Route path="/:slug" element={<Template2 />} />
+
+      {/* Fallback 404 */}
+      <Route path="*" element={<Layout><NotFound /></Layout>} />
     </Routes>
   )
 }

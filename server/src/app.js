@@ -10,6 +10,7 @@ import { verifyAdminToken } from './middlewares/auth.js'
 import { healthRouter } from './routes/health.routes.js'
 import { authRouter } from './routes/auth.routes.js'
 import { invitationRouter, eventRouter } from './routes/invitation.routes.js'
+import { template2Router } from './routes/template2.routes.js'
 
 export function createApp() {
   const app = express()
@@ -44,6 +45,7 @@ export function createApp() {
   app.use('/api/v1/auth', authRouter)
   app.use('/api/v1/invitations', verifyAdminToken, invitationRouter)
   app.use('/api/v1/events', verifyAdminToken, eventRouter)
+  app.use('/api/v1/template2', template2Router)
 
   app.use(notFound)
   app.use(errorHandler)

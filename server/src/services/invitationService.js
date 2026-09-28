@@ -1,25 +1,25 @@
 import { Invitation } from '../models/Invitation.js'
-import { Event } from '../models/Event.js'
-import { ApiError } from '../utils/ApiError.js'
+import { Event }      from '../models/Event.js'
+import { ApiError }   from '../utils/ApiError.js'
 import { uniqueSlug } from '../utils/slugify.js'
 
 function assertOwner(invitation, userId) {
-  if (String(invitation.ownerId) !== String(userId)) {
+  if (String(invitation.ownerId) !== String(userId))
     throw new ApiError(403, 'You cannot access this invitation')
-  }
 }
 
 export async function createInvitation(ownerId, payload) {
   const invitation = await Invitation.create({
     ownerId,
-    title: payload.title,
-    slug: uniqueSlug(payload.title),
-    status: payload.status || 'draft',
-    language: payload.language || 'English',
-    basicInfo: payload.basicInfo || {},
-    hosts: payload.hosts || {},
-    story: payload.story || {},
-    theme: payload.theme || {},
+    title:      payload.title,
+    slug:       uniqueSlug(payload.title),
+    templateId: payload.templateId,
+    status:     payload.status   || 'draft',
+    language:   payload.language || 'English',
+    basicInfo:  payload.basicInfo || {},
+    hosts:      payload.hosts    || {},
+    story:      payload.story    || {},
+    theme:      payload.theme    || {},
   })
 
   if (payload.events?.length) {
@@ -27,7 +27,7 @@ export async function createInvitation(ownerId, payload) {
       payload.events.map((event, index) => ({
         ...event,
         invitationId: invitation._id,
-        sortOrder: event.sortOrder ?? index,
+        sortOrder:    event.sortOrder ?? index,
       }))
     )
   }
@@ -38,9 +38,7 @@ export async function createInvitation(ownerId, payload) {
 export async function listInvitations(ownerId, { status } = {}) {
   const filter = { ownerId }
   if (status) filter.status = status
-  return Invitation.find(filter)
-    .sort({ updatedAt: -1 })
-    .lean()
+  return Invitation.find(filter).sort({ updatedAt: -1 }).lean()
 }
 
 export async function getInvitationById(id, ownerId) {
@@ -67,7 +65,7 @@ export async function updateInvitation(id, ownerId, payload) {
         events.map((event, index) => ({
           ...event,
           invitationId: invitation._id,
-          sortOrder: event.sortOrder ?? index,
+          sortOrder:    event.sortOrder ?? index,
         }))
       )
     }
@@ -89,11 +87,7 @@ export async function addEvent(invitationId, ownerId, payload) {
   if (!invitation) throw new ApiError(404, 'Invitation not found')
   assertOwner(invitation, ownerId)
   const count = await Event.countDocuments({ invitationId })
-  return Event.create({
-    ...payload,
-    invitationId,
-    sortOrder: payload.sortOrder ?? count,
-  })
+  return Event.create({ ...payload, invitationId, sortOrder: payload.sortOrder ?? count })
 }
 
 export async function updateEvent(eventId, ownerId, payload) {
